@@ -116,7 +116,7 @@ export function About() {
                   Engineering Philosophy
                 </h4>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  I believe exceptional software is defined by three core pillars: **scalability**, **maintainability**, and **delightful user experience**. Every system I build uses strict TypeScript typing, atomic component separation, and robust automated test suites.
+                  I believe exceptional software is defined by three core pillars: scalability,maintainability,and delightful user experience. Every system I build uses strict TypeScript typing, atomic component separation, and robust automated test suites.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                   <div className="p-3 rounded-lg bg-slate-900/60 border border-white/5">
