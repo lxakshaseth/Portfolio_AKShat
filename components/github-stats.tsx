@@ -233,6 +233,7 @@ export function GitHubStats() {
             <input
               type="text"
               placeholder="Search repositories..."
+              suppressHydrationWarning
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-950/80 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-all"
@@ -300,6 +301,7 @@ export function GitHubStats() {
         {filteredRepos.length > 6 && (
           <button
             onClick={() => setShowAll(!showAll)}
+            suppressHydrationWarning
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-semibold text-xs shadow-lg hover:shadow-purple-500/30 transition-all transform hover:scale-105 active:scale-95"
           >
             {showAll ? (

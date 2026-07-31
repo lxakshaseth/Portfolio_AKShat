@@ -1,11 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useTyping } from "@/hooks/use-typing";
 import { PERSONAL_INFO } from "@/data/portfolio";
-import { ParticlesBackground } from "./particles-background";
 import { ArrowRight, Download, Mail, Sparkles, Terminal, Code, CheckCircle2 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { motion } from "framer-motion";
+
+const ParticlesBackground = dynamic(
+  () => import("./particles-background").then((mod) => mod.ParticlesBackground),
+  { ssr: false }
+);
 
 export function Hero() {
   const typedTitle = useTyping(PERSONAL_INFO.titles, 90, 40, 1800);

@@ -44,6 +44,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Close Button */}
           <button
             onClick={onClose}
+            suppressHydrationWarning
             className="absolute top-4 right-4 p-2.5 rounded-full bg-slate-900/90 text-slate-400 hover:text-white border border-white/10 hover:border-purple-500/40 transition-all z-20"
             aria-label="Close modal"
           >

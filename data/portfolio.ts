@@ -12,10 +12,10 @@ export const PERSONAL_INFO = {
   bio: "Building high-performance MERN stack web applications, robust backend microservices, and modern responsive frontend interfaces backed by cloud infrastructure.",
   about: "I am a Full Stack Developer & MERN Stack Specialist with deep expertise in Node.js, Express, MongoDB, PostgreSQL, React 19, Next.js 15, and AWS cloud deployments. I build end-to-end web applications combining scalable backend APIs with polished, lightning-fast frontend user interfaces.",
   location: "pune, India / Global Remote",
-  email: "akshat.dev.contact@gmail.com",
+  email: "lxakshatseth90@gmail.com",
   phone: "+91 7256014047",
   github: "https://github.com/lxakshaseth",
-  linkedin: "www.linkedin.com/in/akshat0906",
+  linkedin: "https://www.linkedin.com/in/akshat0906",
   twitter: "https://twitter.com/lx_akshat_seth",
   resumeUrl: "https://drive.google.com/file/d/1ZIRdRRXlGHo9EIvix15CAs6mgsO290Q1/view?usp=sharing",
   yearsExperience: "1+",
@@ -396,31 +396,85 @@ export const PROJECTS: ProjectItem[] = [
 
 export const CERTIFICATIONS: CertificationItem[] = [
   {
-    id: "cert-1",
-    title: "Oracle Cloud Infrastructure 2024 AI Certified Foundations Associate",
+    id: "cert-oracle-agentic-ai",
+    title: "Agentic AI Certified Foundations Associate",
     issuer: "Oracle University",
-    date: "2024",
-    credentialId: "OCI-AI-2024-AKSHAT-8921",
+    date: "July 2026",
+    credentialId: "102179368AAI26OFA",
     credentialUrl: "https://education.oracle.com/verify",
-    skills: ["Generative AI", "LLM Fine-Tuning", "Machine Learning Foundations", "Oracle Cloud AI Services"]
+    skills: ["Agentic AI", "Autonomous AI Systems", "LLM Agents", "AI Workflow Architectures"]
   },
   {
-    id: "cert-2",
+    id: "cert-oracle-oci-ai-2025",
+    title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+    issuer: "Oracle University",
+    date: "July 2025",
+    credentialId: "102179298OCI25AICFA",
+    credentialUrl: "https://education.oracle.com/verify",
+    skills: ["OCI Cloud AI", "Generative AI", "Machine Learning Foundations", "Cloud Infrastructure"]
+  },
+  {
+    id: "cert-nestle-resilience",
+    title: "Nestlé E-learning 2025 | Resilience (Nesternship)",
+    issuer: "Nestlé (Needs YOUth)",
+    date: "2025",
+    credentialId: "NESTLE-RESILIENCE-2025",
+    credentialUrl: "https://www.nestle.com",
+    skills: ["Professional Resilience", "Workplace Agility", "Team Leadership", "Corporate E-Learning"]
+  },
+  {
+    id: "cert-deloitte",
+    title: "Data Analytics Job Simulation",
+    issuer: "Deloitte (Forage)",
+    date: "September 2025",
+    credentialId: "BQkqhxBGzQwi5arRe",
+    credentialUrl: "https://www.theforage.com/simulations/deloitte/data-analytics",
+    skills: ["Data Analysis", "Forensic Technology", "Data Visualization", "Business Insights"]
+  },
+  {
+    id: "cert-edunet-aicte-shell",
+    title: "Advanced Green Skills and Artificial Intelligence (Skills4Future)",
+    issuer: "Edunet Foundation | AICTE | Shell India",
+    date: "Jan 2026 - Feb 2026",
+    credentialId: "S4F25_208105",
+    credentialUrl: "https://edunetfoundation.org",
+    skills: ["Artificial Intelligence", "Green Skills", "Machine Learning", "Prompt Engineering"]
+  },
+  {
+    id: "cert-barclays-gtt",
+    title: "Barclays Life Skills Training Program",
+    issuer: "GTT Foundation | Barclays",
+    date: "March 2026",
+    credentialId: "GTT-BARCLAYS-2026",
+    credentialUrl: "https://gttconnect.com",
+    skills: ["Professional Communication", "Life Skills", "Corporate Readiness", "Problem Solving"]
+  },
+  {
+    id: "cert-aivitalix-shamgar",
+    title: "Workshop on AI Tools and Industry Best Practices",
+    issuer: "AIVitalix HealthCare | Shamgar Software (AICTE Partner)",
+    date: "November 2025",
+    credentialId: "Cert No: 4323",
+    credentialUrl: "https://aivitalix.com",
+    skills: ["AI Tools", "Industry Best Practices", "Machine Learning Applications", "Workflow Automation"]
+  },
+  {
+    id: "cert-uptoskills-exp",
+    title: "Web Development Internship & Leadership Certificate",
+    issuer: "UptoSkills",
+    date: "Oct 2025 - Apr 2026",
+    credentialId: "US-EXP-2026-FKIP2BG",
+    credentialUrl: "https://uptoskills.com",
+    skills: ["Web Development", "Team Captaincy", "Frontend Architecture", "UI/UX Optimization"]
+  },
+  {
+    id: "cert-aws",
     title: "AWS Academy Graduate - AWS Cloud Foundations",
     issuer: "Amazon Web Services",
     date: "2023",
     credentialId: "AWS-ACADEMY-78190",
     credentialUrl: "https://aws.amazon.com/verification",
     skills: ["AWS EC2", "S3 Storage", "IAM Security", "CloudFront CDN", "VPC Networking"]
-  },
-  {
-    id: "cert-3",
-    title: "Meta Certified Front-End Developer",
-    issuer: "Meta (Coursera)",
-    date: "2023",
-    credentialId: "META-FED-99214",
-    credentialUrl: "https://coursera.org/verify",
-    skills: ["Advanced React", "UI/UX Principles", "Web Performance Optimization", "CSS Architecture"]
   }
 ];
 

@@ -38,6 +38,7 @@ export function Skills() {
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
+            suppressHydrationWarning
             className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${
               selectedCategory === cat
                 ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.4)]"
