@@ -11,7 +11,7 @@ export const PERSONAL_INFO = {
   ],
   bio: "Building high-performance MERN stack web applications, robust backend microservices, and modern responsive frontend interfaces backed by cloud infrastructure.",
   about: "I am a Full Stack Developer & MERN Stack Specialist with deep expertise in Node.js, Express, MongoDB, PostgreSQL, React 19, Next.js 15, and AWS cloud deployments. I build end-to-end web applications combining scalable backend APIs with polished, lightning-fast frontend user interfaces.",
-  // location: "pune, India / Global Remote",
+  location: "pune, India / Global Remote",
   email: "lxakshatseth90@gmail.com",
   phone: "+91 7256014047",
   github: "https://github.com/lxakshaseth",
