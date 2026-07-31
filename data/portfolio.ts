@@ -11,12 +11,13 @@ export const PERSONAL_INFO = {
   ],
   bio: "Building high-performance MERN stack web applications, robust backend microservices, and modern responsive frontend interfaces backed by cloud infrastructure.",
   about: "I am a Full Stack Developer & MERN Stack Specialist with deep expertise in Node.js, Express, MongoDB, PostgreSQL, React 19, Next.js 15, and AWS cloud deployments. I build end-to-end web applications combining scalable backend APIs with polished, lightning-fast frontend user interfaces.",
-  location: "Delhi, India / Global Remote",
+  location: "pune, India / Global Remote",
   email: "akshat.dev.contact@gmail.com",
-  phone: "+91 98765 43210",
+  phone: "+91 7256014047",
   github: "https://github.com/lxakshaseth",
-  linkedin: "https://linkedin.com/in/akshat-dev",
-  twitter: "https://twitter.com/akshat_codes",
+  linkedin: "www.linkedin.com/in/akshat0906",
+  twitter: "https://twitter.com/lx_akshat_seth",
+  resumeUrl: "https://drive.google.com/file/d/1ZIRdRRXlGHo9EIvix15CAs6mgsO290Q1/view?usp=sharing",
   yearsExperience: "1+",
   projectsCompleted: "45+",
   satisfiedClients: "15+",
@@ -121,7 +122,7 @@ export const EDUCATION = [
   {
     degree: "Bachelor of Technology in Computer Science & Engineering",
     institution: "Delhi Technological University / IP University",
-    period: "2020 - 2024",
+    period: "2023 - 2027",
     details: "Specialized in Distributed Systems, Data Structures & Algorithms, and Machine Learning. Graduated with Honors."
   }
 ];
