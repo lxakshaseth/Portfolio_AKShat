@@ -46,7 +46,7 @@ export function Contact() {
     } catch (err) {
       setStatus({
         type: "error",
-        text: "Something went wrong. Please email directly at akshat.dev.contact@gmail.com",
+        text: "Something went wrong. Please email directly at lxakshatseth90@gmail.com",
       });
     } finally {
       setLoading(false);
@@ -121,7 +121,7 @@ export function Contact() {
               </span>
               <div className="flex items-center gap-3">
                 <a
-                  href={PERSONAL_INFO.github}
+                  href={PERSONAL_INFO.github.startsWith("http") ? PERSONAL_INFO.github : `https://${PERSONAL_INFO.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-xl bg-slate-900 text-slate-300 hover:text-white border border-white/10 hover:border-purple-500/40 transition-all"
@@ -130,7 +130,7 @@ export function Contact() {
                   <GithubIcon className="w-5 h-5" />
                 </a>
                 <a
-                  href={PERSONAL_INFO.linkedin}
+                  href={PERSONAL_INFO.linkedin.startsWith("http") ? PERSONAL_INFO.linkedin : `https://${PERSONAL_INFO.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-xl bg-slate-900 text-slate-300 hover:text-white border border-white/10 hover:border-purple-500/40 transition-all"
@@ -139,7 +139,7 @@ export function Contact() {
                   <LinkedinIcon className="w-5 h-5" />
                 </a>
                 <a
-                  href={PERSONAL_INFO.twitter}
+                  href={PERSONAL_INFO.twitter.startsWith("http") ? PERSONAL_INFO.twitter : `https://${PERSONAL_INFO.twitter}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-xl bg-slate-900 text-slate-300 hover:text-white border border-white/10 hover:border-purple-500/40 transition-all"
@@ -155,7 +155,7 @@ export function Contact() {
         {/* Right Contact Form */}
         <div className="lg:col-span-7">
           <GlassCard>
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} suppressHydrationWarning className="space-y-5">
               <h3 className="text-xl font-bold text-white mb-2">Send a Message</h3>
 
               {status && (
@@ -185,6 +185,7 @@ export function Contact() {
                     id="name"
                     name="name"
                     required
+                    suppressHydrationWarning
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Akshat"
@@ -201,6 +202,7 @@ export function Contact() {
                     id="email"
                     name="email"
                     required
+                    suppressHydrationWarning
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="name@example.com"
@@ -217,6 +219,7 @@ export function Contact() {
                   type="text"
                   id="subject"
                   name="subject"
+                  suppressHydrationWarning
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Project Opportunity / Technical Inquiry"
@@ -233,6 +236,7 @@ export function Contact() {
                   name="message"
                   required
                   rows={5}
+                  suppressHydrationWarning
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell me about your project or role details..."
@@ -243,6 +247,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={loading}
+                suppressHydrationWarning
                 className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-semibold text-sm shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] disabled:opacity-50 transition-all"
               >
                 {loading ? (

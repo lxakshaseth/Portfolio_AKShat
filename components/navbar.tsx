@@ -104,6 +104,7 @@ export function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            suppressHydrationWarning
             className="lg:hidden p-2 text-slate-300 hover:text-white rounded-full bg-slate-800/80 border border-white/10"
             aria-label="Toggle Menu"
           >

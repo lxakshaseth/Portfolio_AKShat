@@ -64,6 +64,7 @@ export function About() {
           <div className="flex flex-wrap gap-2 p-1.5 glass-panel rounded-xl border border-white/10">
             <button
               onClick={() => setActiveTab("summary")}
+              suppressHydrationWarning
               className={`flex-1 min-w-[110px] py-2.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
                 activeTab === "summary"
                   ? "bg-purple-600 text-white shadow-md"
@@ -76,6 +77,7 @@ export function About() {
 
             <button
               onClick={() => setActiveTab("education")}
+              suppressHydrationWarning
               className={`flex-1 min-w-[110px] py-2.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
                 activeTab === "education"
                   ? "bg-purple-600 text-white shadow-md"
@@ -88,6 +90,7 @@ export function About() {
 
             <button
               onClick={() => setActiveTab("achievements")}
+              suppressHydrationWarning
               className={`flex-1 min-w-[110px] py-2.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
                 activeTab === "achievements"
                   ? "bg-purple-600 text-white shadow-md"

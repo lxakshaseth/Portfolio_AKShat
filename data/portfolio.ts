@@ -1,7 +1,7 @@
 import { CertificationItem, ExperienceItem, GitHubData, ProjectItem, SkillCategory } from "@/types/portfolio";
 
 export const PERSONAL_INFO = {
-  name: "Akshat",
+  name: "Akshat Gupta",
   role: "Full Stack | MERN Stack | Backend | Frontend Developer",
   titles: [
     "Full Stack Developer",
@@ -12,10 +12,10 @@ export const PERSONAL_INFO = {
   bio: "Building high-performance MERN stack web applications, robust backend microservices, and modern responsive frontend interfaces backed by cloud infrastructure.",
   about: "I am a Full Stack Developer & MERN Stack Specialist with deep expertise in Node.js, Express, MongoDB, PostgreSQL, React 19, Next.js 15, and AWS cloud deployments. I build end-to-end web applications combining scalable backend APIs with polished, lightning-fast frontend user interfaces.",
   location: "pune, India / Global Remote",
-  email: "akshat.dev.contact@gmail.com",
+  email: "lxakshatseth90@gmail.com",
   phone: "+91 7256014047",
   github: "https://github.com/lxakshaseth",
-  linkedin: "www.linkedin.com/in/akshat0906",
+  linkedin: "https://www.linkedin.com/in/akshat0906",
   twitter: "https://twitter.com/lx_akshat_seth",
   resumeUrl: "https://drive.google.com/file/d/1ZIRdRRXlGHo9EIvix15CAs6mgsO290Q1/view?usp=sharing",
   yearsExperience: "1+",
@@ -72,49 +72,75 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: "exp-1",
-    role: "Senior Full Stack & AI Engineer",
-    company: "TechInnovate Labs",
-    location: "Remote",
-    period: "2024 - Present",
-    type: "Full-time",
-    description: "Leading the development of enterprise AI applications and cloud microservices serving 100k+ active users.",
-    achievements: [
-      "Engineered an automated RAG-based AI document processing pipeline using Groq and OpenAI, reducing document parsing latency by 65%.",
-      "Architected Next.js 15 App Router frontend with SSR, achieving sub-second page loads and a Lighthouse performance score of 98.",
-      "Optimized MongoDB & PostgreSQL query execution plans, resulting in a 40% reduction in API response times under high concurrency."
-    ],
-    technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS EC2", "OpenAI API", "Docker"]
-  },
-  {
-    id: "exp-2",
-    role: "Full Stack Developer",
-    company: "CloudEdge Solutions",
-    location: "Delhi, India",
-    period: "2023 - 2024",
-    type: "Full-time",
-    description: "Built scalable web apps, real-time analytics dashboards, and automated CI/CD pipelines.",
-    achievements: [
-      "Built a multi-tenant SaaS dashboard using React, Tailwind CSS, and Redis caching for real-time sales automation metrics.",
-      "Set up GitHub Actions CI/CD pipelines to automate zero-downtime deployments to AWS S3 and CloudFront.",
-      "Implemented WebRTC real-time audio/video sync for live virtual classroom sessions."
-    ],
-    technologies: ["React", "Express.js", "MongoDB", "Redis", "AWS CloudFront", "Tailwind CSS"]
-  },
-  {
-    id: "exp-3",
-    role: "Backend Engineer Intern",
-    company: "Cognitive Systems",
-    location: "Hybrid",
-    period: "2022 - 2023",
+    id: "exp-indux",
+    role: "Full Stack Developer Intern",
+    company: "Indux Technology",
+    location: "Remote / On-site",
+    period: "Feb 2026 – Aug 2026",
     type: "Internship",
-    description: "Focused on REST API design, database schema architecture, and OCR extraction algorithms.",
+    description: "Collaborated under company leadership (CEO Mr. Laxman Jadhav) to build responsive frontend components and end-to-end full-stack features.",
     achievements: [
-      "Developed high-throughput Node.js microservices handling 500+ requests per second.",
-      "Integrated Tesseract OCR and OpenCV pipelines to digitize physical invoices automatically.",
-      "Refactored legacy monolith into modular REST services secured with JWT and Rate Limiting."
+      "Built user-friendly, responsive web components using HTML5, CSS3, JavaScript, and modern frameworks (React / Vue).",
+      "Collaborated closely with cross-functional frontend and backend development teams to ensure design consistency and high quality across platforms.",
+      "Worked directly under the mentorship of company leadership (CEO Mr. Laxman Jadhav) to implement end-to-end full-stack features."
     ],
-    technologies: ["Node.js", "Express", "MongoDB", "JWT", "Docker", "Tesseract OCR"]
+    technologies: ["React", "Vue.js", "JavaScript", "HTML5", "CSS3", "Full Stack Architecture"]
+  },
+  {
+    id: "exp-apex-data",
+    role: "Data Analytics Intern",
+    company: "ApexPlanet Software Pvt Ltd",
+    location: "Remote",
+    period: "Jan 2026 – Mar 2026",
+    type: "Internship",
+    description: "Analyzed complex datasets to derive actionable business insights and support data-driven decision-making (Ref ID: APSPL2627277).",
+    achievements: [
+      "Analyzed datasets to derive actionable business insights and support data-driven decision-making.",
+      "Hands-on exposure to data manipulation, visualization, and analytical techniques in a dynamic software development environment."
+    ],
+    technologies: ["Data Analytics", "Data Processing", "Data Visualization", "Python", "SQL"]
+  },
+  {
+    id: "exp-uptoskills",
+    role: "Web Development Intern",
+    company: "UptoSkills",
+    location: "Remote",
+    period: "Oct 2025 – Jan 2026",
+    type: "Internship",
+    description: "Developed and optimized responsive UI modules under the guidance of Reporting Manager Mr. Shivam Agarwal.",
+    achievements: [
+      "Developed and optimized responsive UI modules under the guidance of Reporting Manager Mr. Shivam Agarwal.",
+      "Enhanced frontend performance and user interface design consistency for interactive web applications."
+    ],
+    technologies: ["Web Development", "React", "Frontend Integration", "JavaScript", "HTML5/CSS3"]
+  },
+  {
+    id: "exp-apex-web",
+    role: "Web Development Intern",
+    company: "ApexPlanet Software Pvt Ltd",
+    location: "Remote",
+    period: "Oct 2025 – Nov 2025",
+    type: "Internship",
+    description: "Implemented core frontend features using HTML, CSS, and JavaScript (Ref ID: APSPL2521280).",
+    achievements: [
+      "Implemented core frontend features using HTML, CSS, and JavaScript.",
+      "Strengthened foundational web development capabilities by building and debugging dynamic user interface components."
+    ],
+    technologies: ["HTML5", "CSS3", "JavaScript", "Web Layouts", "DOM Manipulation"]
+  },
+  {
+    id: "exp-axuore",
+    role: "Frontend Development Intern",
+    company: "Axuore Technologies",
+    location: "Remote",
+    period: "Jan 2025 – Feb 2025",
+    type: "Internship",
+    description: "Collaborated with senior professionals to develop real-world web application interfaces using React and Angular framework principles.",
+    achievements: [
+      "Collaborated with senior professionals to develop real-world web application interfaces using HTML, CSS, JavaScript, and React/Angular framework principles.",
+      "Solved real-world challenges in frontend design responsiveness and cross-browser performance."
+    ],
+    technologies: ["React", "Angular", "JavaScript", "HTML5", "CSS3", "Responsive UI"]
   }
 ];
 
@@ -370,31 +396,85 @@ export const PROJECTS: ProjectItem[] = [
 
 export const CERTIFICATIONS: CertificationItem[] = [
   {
-    id: "cert-1",
-    title: "Oracle Cloud Infrastructure 2024 AI Certified Foundations Associate",
+    id: "cert-oracle-agentic-ai",
+    title: "Agentic AI Certified Foundations Associate",
     issuer: "Oracle University",
-    date: "2024",
-    credentialId: "OCI-AI-2024-AKSHAT-8921",
+    date: "July 2026",
+    credentialId: "102179368AAI26OFA",
     credentialUrl: "https://education.oracle.com/verify",
-    skills: ["Generative AI", "LLM Fine-Tuning", "Machine Learning Foundations", "Oracle Cloud AI Services"]
+    skills: ["Agentic AI", "Autonomous AI Systems", "LLM Agents", "AI Workflow Architectures"]
   },
   {
-    id: "cert-2",
+    id: "cert-oracle-oci-ai-2025",
+    title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+    issuer: "Oracle University",
+    date: "July 2025",
+    credentialId: "102179298OCI25AICFA",
+    credentialUrl: "https://education.oracle.com/verify",
+    skills: ["OCI Cloud AI", "Generative AI", "Machine Learning Foundations", "Cloud Infrastructure"]
+  },
+  {
+    id: "cert-nestle-resilience",
+    title: "Nestlé E-learning 2025 | Resilience (Nesternship)",
+    issuer: "Nestlé (Needs YOUth)",
+    date: "2025",
+    credentialId: "NESTLE-RESILIENCE-2025",
+    credentialUrl: "https://www.nestle.com",
+    skills: ["Professional Resilience", "Workplace Agility", "Team Leadership", "Corporate E-Learning"]
+  },
+  {
+    id: "cert-deloitte",
+    title: "Data Analytics Job Simulation",
+    issuer: "Deloitte (Forage)",
+    date: "September 2025",
+    credentialId: "BQkqhxBGzQwi5arRe",
+    credentialUrl: "https://www.theforage.com/simulations/deloitte/data-analytics",
+    skills: ["Data Analysis", "Forensic Technology", "Data Visualization", "Business Insights"]
+  },
+  {
+    id: "cert-edunet-aicte-shell",
+    title: "Advanced Green Skills and Artificial Intelligence (Skills4Future)",
+    issuer: "Edunet Foundation | AICTE | Shell India",
+    date: "Jan 2026 - Feb 2026",
+    credentialId: "S4F25_208105",
+    credentialUrl: "https://edunetfoundation.org",
+    skills: ["Artificial Intelligence", "Green Skills", "Machine Learning", "Prompt Engineering"]
+  },
+  {
+    id: "cert-barclays-gtt",
+    title: "Barclays Life Skills Training Program",
+    issuer: "GTT Foundation | Barclays",
+    date: "March 2026",
+    credentialId: "GTT-BARCLAYS-2026",
+    credentialUrl: "https://gttconnect.com",
+    skills: ["Professional Communication", "Life Skills", "Corporate Readiness", "Problem Solving"]
+  },
+  {
+    id: "cert-aivitalix-shamgar",
+    title: "Workshop on AI Tools and Industry Best Practices",
+    issuer: "AIVitalix HealthCare | Shamgar Software (AICTE Partner)",
+    date: "November 2025",
+    credentialId: "Cert No: 4323",
+    credentialUrl: "https://aivitalix.com",
+    skills: ["AI Tools", "Industry Best Practices", "Machine Learning Applications", "Workflow Automation"]
+  },
+  {
+    id: "cert-uptoskills-exp",
+    title: "Web Development Internship & Leadership Certificate",
+    issuer: "UptoSkills",
+    date: "Oct 2025 - Apr 2026",
+    credentialId: "US-EXP-2026-FKIP2BG",
+    credentialUrl: "https://uptoskills.com",
+    skills: ["Web Development", "Team Captaincy", "Frontend Architecture", "UI/UX Optimization"]
+  },
+  {
+    id: "cert-aws",
     title: "AWS Academy Graduate - AWS Cloud Foundations",
     issuer: "Amazon Web Services",
     date: "2023",
     credentialId: "AWS-ACADEMY-78190",
     credentialUrl: "https://aws.amazon.com/verification",
     skills: ["AWS EC2", "S3 Storage", "IAM Security", "CloudFront CDN", "VPC Networking"]
-  },
-  {
-    id: "cert-3",
-    title: "Meta Certified Front-End Developer",
-    issuer: "Meta (Coursera)",
-    date: "2023",
-    credentialId: "META-FED-99214",
-    credentialUrl: "https://coursera.org/verify",
-    skills: ["Advanced React", "UI/UX Principles", "Web Performance Optimization", "CSS Architecture"]
   }
 ];
 

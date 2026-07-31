@@ -91,14 +91,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable} ${firaCode.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`scroll-smooth ${inter.variable} ${firaCode.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-slate-950 text-slate-100 antialiased selection:bg-purple-500/30 selection:text-purple-200">
+      <body suppressHydrationWarning className="bg-slate-950 text-slate-100 antialiased selection:bg-purple-500/30 selection:text-purple-200">
         <ScrollProgress />
         <CustomCursor />
         <Navbar />

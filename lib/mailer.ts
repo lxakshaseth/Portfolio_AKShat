@@ -1,0 +1,62 @@
+import nodemailer from "nodemailer";
+
+interface SendEmailParams {
+  name: string;
+  email: string;
+  subject?: string;
+  message: string;
+}
+
+export async function sendContactNotification({
+  name,
+  email,
+  subject,
+  message,
+}: SendEmailParams) {
+  const host = process.env.SMTP_HOST || process.env.EMAIL_HOST;
+  const port = parseInt(process.env.SMTP_PORT || process.env.EMAIL_PORT || "587");
+  const user = process.env.SMTP_USER || process.env.EMAIL_USER;
+  const pass = process.env.SMTP_PASS || process.env.EMAIL_PASS;
+  const recipientEmail = process.env.NOTIFICATION_EMAIL || process.env.CONTACT_EMAIL || "akshat.dev.contact@gmail.com";
+
+  if (!host || !user || !pass) {
+    console.warn("SMTP credentials not fully provided in .env. Skipping email dispatch.");
+    return { success: false, reason: "SMTP credentials missing" };
+  }
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465, // true for 465, false for other ports
+    auth: {
+      user,
+      pass,
+    },
+  });
+
+  const mailOptions = {
+    from: `"${name} (Portfolio Contact)" <${user}>`,
+    replyTo: email,
+    to: recipientEmail,
+    subject: `🚀 Portfolio Inquiry from ${name}: ${subject || "General Inquiry"}`,
+    html: `
+      <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; background-color: #f9f9f9;">
+        <div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 12px; border: 1px solid #e0e0e0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <h2 style="color: #6d28d9; margin-top: 0;">New Portfolio Contact Message</h2>
+          <hr style="border: none; border-top: 1px solid #eeeeee; margin: 15px 0;" />
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Sender Email:</strong> <a href="mailto:${email}">${email}</a></p>
+          <p><strong>Subject:</strong> ${subject || "N/A"}</p>
+          <div style="margin-top: 20px; padding: 15px; background: #f3f4f6; border-left: 4px solid #6d28d9; border-radius: 4px;">
+            <p style="margin: 0; white-space: pre-wrap; color: #1f2937;"><strong>Message:</strong><br/>${message}</p>
+          </div>
+          <hr style="border: none; border-top: 1px solid #eeeeee; margin: 20px 0;" />
+          <p style="font-size: 12px; color: #9ca3af;">This message was submitted via your Portfolio Contact Form.</p>
+        </div>
+      </div>
+    `,
+  };
+
+  const info = await transporter.sendMail(mailOptions);
+  return { success: true, messageId: info.messageId };
+}
