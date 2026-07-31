@@ -65,7 +65,7 @@ export function About() {
             <button
               onClick={() => setActiveTab("summary")}
               suppressHydrationWarning
-              className={`flex-1 min-w-[110px] py-2.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
+              className={`flex-1 min-w-[85px] sm:min-w-[110px] py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "summary"
                   ? "bg-purple-600 text-white shadow-md"
                   : "text-slate-400 hover:text-white"
@@ -78,7 +78,7 @@ export function About() {
             <button
               onClick={() => setActiveTab("education")}
               suppressHydrationWarning
-              className={`flex-1 min-w-[110px] py-2.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
+              className={`flex-1 min-w-[85px] sm:min-w-[110px] py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "education"
                   ? "bg-purple-600 text-white shadow-md"
                   : "text-slate-400 hover:text-white"
@@ -91,7 +91,7 @@ export function About() {
             <button
               onClick={() => setActiveTab("achievements")}
               suppressHydrationWarning
-              className={`flex-1 min-w-[110px] py-2.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
+              className={`flex-1 min-w-[85px] sm:min-w-[110px] py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "achievements"
                   ? "bg-purple-600 text-white shadow-md"
                   : "text-slate-400 hover:text-white"

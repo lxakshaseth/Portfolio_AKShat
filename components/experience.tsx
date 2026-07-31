@@ -14,12 +14,12 @@ export function Experience() {
         subtitle="Track record of driving real engineering impact across high-growth startups and tech labs."
       />
 
-      <div className="relative border-l-2 border-purple-500/30 ml-4 sm:ml-8 space-y-12 pl-6 sm:pl-10">
+      <div className="relative border-l-2 border-purple-500/30 ml-3 sm:ml-8 space-y-12 pl-4 sm:pl-10">
         {EXPERIENCES.map((exp, idx) => (
           <div key={exp.id} className="relative group">
             {/* Timeline Glowing Node */}
-            <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-slate-950 border-2 border-purple-500 flex items-center justify-center group-hover:scale-125 group-hover:bg-purple-600 transition-all shadow-[0_0_15px_rgba(168,85,247,0.8)]">
-              <div className="w-2 h-2 rounded-full bg-purple-300" />
+            <div className="absolute -left-[25px] sm:-left-[47px] top-1.5 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950 border-2 border-purple-500 flex items-center justify-center group-hover:scale-125 group-hover:bg-purple-600 transition-all shadow-[0_0_15px_rgba(168,85,247,0.8)]">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-300" />
             </div>
 
             <GlassCard className="space-y-4 border border-white/10 hover:border-purple-500/40">
