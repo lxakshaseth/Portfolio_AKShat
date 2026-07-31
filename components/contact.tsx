@@ -80,7 +80,7 @@ export function Contact() {
                 </div>
                 <div>
                   <span className="text-[11px] font-mono text-slate-400 block">EMAIL</span>
-                  <span className="text-xs font-semibold text-white group-hover:text-purple-300">
+                  <span className="text-xs font-semibold text-white group-hover:text-purple-300 break-all sm:break-normal">
                     {PERSONAL_INFO.email}
                   </span>
                 </div>

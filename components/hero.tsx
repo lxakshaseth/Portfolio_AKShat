@@ -55,7 +55,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight text-white mb-4"
+          className="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white mb-4 leading-tight"
         >
           Hi, I&apos;m{" "}
           <span className="gradient-text-primary underline decoration-purple-500/30 underline-offset-8">
@@ -68,11 +68,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="h-16 flex items-center justify-center text-xl sm:text-3xl md:text-4xl font-bold font-mono text-slate-200 mb-6"
+          className="min-h-[3.5rem] sm:min-h-[4rem] flex items-center justify-center text-lg sm:text-3xl md:text-4xl font-bold font-mono text-slate-200 mb-6 text-center"
         >
-          <Terminal className="w-7 h-7 mr-3 text-purple-400 inline-block" />
+          <Terminal className="w-5 h-5 sm:w-7 sm:h-7 mr-2 sm:mr-3 text-purple-400 inline-block shrink-0" />
           <span>{typedTitle}</span>
-          <span className="w-3 h-8 bg-purple-400 ml-1.5 animate-pulse rounded-sm" />
+          <span className="w-2.5 h-6 sm:w-3 sm:h-8 bg-purple-400 ml-1 sm:ml-1.5 animate-pulse rounded-sm shrink-0" />
         </motion.div>
 
         {/* Short Bio */}
@@ -80,7 +80,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="max-w-2xl text-base sm:text-lg text-slate-400 leading-relaxed mb-10 font-normal"
+          className="max-w-2xl text-sm sm:text-lg text-slate-400 leading-relaxed mb-8 sm:mb-10 font-normal px-2"
         >
           {PERSONAL_INFO.bio}
         </motion.p>
@@ -90,14 +90,14 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-14 sm:mb-16 w-full max-w-xs sm:max-w-none px-4"
         >
           <a
             href={PERSONAL_INFO.resumeUrl || "/resume.pdf"}
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleDownloadResume}
-            className="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-semibold text-sm shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(168,85,247,0.6)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="group relative inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-semibold text-sm shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(168,85,247,0.6)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
           >
             <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             Download Resume
@@ -105,7 +105,7 @@ export function Hero() {
 
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-panel text-white font-medium text-sm hover:bg-white/10 border border-white/15 transition-all transform hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl glass-panel text-white font-medium text-sm hover:bg-white/10 border border-white/15 transition-all transform hover:-translate-y-0.5"
           >
             <Code className="w-4 h-4 text-blue-400" />
             View Projects
@@ -113,7 +113,7 @@ export function Hero() {
 
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900/90 text-purple-400 border border-purple-500/30 font-medium text-sm hover:bg-purple-500/10 transition-all transform hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900/90 text-purple-400 border border-purple-500/30 font-medium text-sm hover:bg-purple-500/10 transition-all transform hover:-translate-y-0.5"
           >
             <Mail className="w-4 h-4" />
             Hire Me

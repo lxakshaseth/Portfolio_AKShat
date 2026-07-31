@@ -53,14 +53,14 @@ export function Navbar() {
         {/* Brand Logo */}
         <Link
           href="#home"
-          className="flex items-center gap-2 text-lg font-bold text-white tracking-tight group"
+          className="flex items-center gap-2 text-base sm:text-lg font-bold text-white tracking-tight group shrink-0"
         >
-          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform">
-            <Code2 className="w-5 h-5" />
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform shrink-0">
+            <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <span className="gradient-text-primary text-xl font-extrabold tracking-wider">
+          <span className="gradient-text-primary text-base sm:text-xl font-extrabold tracking-wider whitespace-nowrap">
             {PERSONAL_INFO.name}
-            <span className="text-purple-400 font-mono text-sm pl-1">.dev</span>
+            <span className="text-purple-400 font-mono text-xs sm:text-sm pl-1">.dev</span>
           </span>
         </Link>
 
