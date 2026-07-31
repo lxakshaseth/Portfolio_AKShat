@@ -41,6 +41,29 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileMenuOpen(false);
+    };
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setMobileMenuOpen(false);
+    };
+
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+      window.addEventListener("resize", handleResize);
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header className="fixed top-4 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
       <nav
@@ -113,45 +136,59 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Backdrop & Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            className="pointer-events-auto absolute top-16 inset-x-4 max-w-md mx-auto glass-panel p-6 rounded-2xl border border-white/10 shadow-2xl flex flex-col gap-3 lg:hidden z-50"
-          >
-            <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-1">
-              <span className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-purple-400" /> Navigation
-              </span>
-              <span className="text-xs text-purple-400 font-mono">Akshat Portfolio</span>
-            </div>
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                  activeSection === item.href.substring(1)
-                    ? "bg-purple-600/30 text-white border border-purple-500/40"
-                    : "text-slate-300 hover:bg-white/5"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href={PERSONAL_INFO.resumeUrl || "/resume.pdf"}
-              target="_blank"
-              rel="noopener noreferrer"
+          <>
+            {/* Dark Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-2 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm shadow-lg"
+              className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-40 lg:hidden pointer-events-auto"
+            />
+
+            {/* Mobile Drawer Panel */}
+            <motion.div
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="pointer-events-auto absolute top-16 inset-x-4 max-w-md mx-auto bg-slate-900/95 backdrop-blur-2xl p-6 rounded-2xl border border-white/15 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.9)] flex flex-col gap-3 lg:hidden z-50"
             >
-              <FileText className="w-4 h-4" /> Download Resume
-            </a>
-          </motion.div>
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-1">
+                <span className="text-sm font-semibold text-slate-300 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-purple-400" /> Navigation
+                </span>
+                <span className="text-xs text-purple-400 font-mono">Akshat Portfolio</span>
+              </div>
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    activeSection === item.href.substring(1)
+                      ? "bg-purple-600/30 text-white border border-purple-500/40"
+                      : "text-slate-300 hover:bg-white/5"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <a
+                href={PERSONAL_INFO.resumeUrl || "/resume.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-2 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm shadow-lg hover:shadow-purple-500/25 transition-all"
+              >
+                <FileText className="w-4 h-4" /> Download Resume
+              </a>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
