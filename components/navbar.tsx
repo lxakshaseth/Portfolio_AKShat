@@ -92,8 +92,9 @@ export function Navbar() {
         {/* Resume Button & Mobile Menu Toggle */}
         <div className="flex items-center gap-3">
           <a
-            href="/resume.pdf"
-            download="Akshat_Resume.pdf"
+            href={PERSONAL_INFO.resumeUrl || "/resume.pdf"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all transform hover:scale-105 active:scale-95"
           >
             <FileText className="w-3.5 h-3.5" />
@@ -141,8 +142,9 @@ export function Navbar() {
               </Link>
             ))}
             <a
-              href="/resume.pdf"
-              download="Akshat_Resume.pdf"
+              href={PERSONAL_INFO.resumeUrl || "/resume.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="mt-2 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm shadow-lg"
             >

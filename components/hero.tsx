@@ -88,8 +88,9 @@ export function Hero() {
           className="flex flex-wrap items-center justify-center gap-4 mb-16"
         >
           <a
-            href="/resume.pdf"
-            download="Akshat_Resume.pdf"
+            href={PERSONAL_INFO.resumeUrl || "/resume.pdf"}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={handleDownloadResume}
             className="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-semibold text-sm shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(168,85,247,0.6)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
           >
