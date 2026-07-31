@@ -1,7 +1,7 @@
 import { CertificationItem, ExperienceItem, GitHubData, ProjectItem, SkillCategory } from "@/types/portfolio";
 
 export const PERSONAL_INFO = {
-  name: "Akshat",
+  name: "Akshat Gupta",
   role: "Full Stack | MERN Stack | Backend | Frontend Developer",
   titles: [
     "Full Stack Developer",
@@ -72,49 +72,75 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: "exp-1",
-    role: "Senior Full Stack & AI Engineer",
-    company: "TechInnovate Labs",
-    location: "Remote",
-    period: "2024 - Present",
-    type: "Full-time",
-    description: "Leading the development of enterprise AI applications and cloud microservices serving 100k+ active users.",
-    achievements: [
-      "Engineered an automated RAG-based AI document processing pipeline using Groq and OpenAI, reducing document parsing latency by 65%.",
-      "Architected Next.js 15 App Router frontend with SSR, achieving sub-second page loads and a Lighthouse performance score of 98.",
-      "Optimized MongoDB & PostgreSQL query execution plans, resulting in a 40% reduction in API response times under high concurrency."
-    ],
-    technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS EC2", "OpenAI API", "Docker"]
-  },
-  {
-    id: "exp-2",
-    role: "Full Stack Developer",
-    company: "CloudEdge Solutions",
-    location: "Delhi, India",
-    period: "2023 - 2024",
-    type: "Full-time",
-    description: "Built scalable web apps, real-time analytics dashboards, and automated CI/CD pipelines.",
-    achievements: [
-      "Built a multi-tenant SaaS dashboard using React, Tailwind CSS, and Redis caching for real-time sales automation metrics.",
-      "Set up GitHub Actions CI/CD pipelines to automate zero-downtime deployments to AWS S3 and CloudFront.",
-      "Implemented WebRTC real-time audio/video sync for live virtual classroom sessions."
-    ],
-    technologies: ["React", "Express.js", "MongoDB", "Redis", "AWS CloudFront", "Tailwind CSS"]
-  },
-  {
-    id: "exp-3",
-    role: "Backend Engineer Intern",
-    company: "Cognitive Systems",
-    location: "Hybrid",
-    period: "2022 - 2023",
+    id: "exp-indux",
+    role: "Full Stack Developer Intern",
+    company: "Indux Technology",
+    location: "Remote / On-site",
+    period: "Feb 2026 – Aug 2026",
     type: "Internship",
-    description: "Focused on REST API design, database schema architecture, and OCR extraction algorithms.",
+    description: "Collaborated under company leadership (CEO Mr. Laxman Jadhav) to build responsive frontend components and end-to-end full-stack features.",
     achievements: [
-      "Developed high-throughput Node.js microservices handling 500+ requests per second.",
-      "Integrated Tesseract OCR and OpenCV pipelines to digitize physical invoices automatically.",
-      "Refactored legacy monolith into modular REST services secured with JWT and Rate Limiting."
+      "Built user-friendly, responsive web components using HTML5, CSS3, JavaScript, and modern frameworks (React / Vue).",
+      "Collaborated closely with cross-functional frontend and backend development teams to ensure design consistency and high quality across platforms.",
+      "Worked directly under the mentorship of company leadership (CEO Mr. Laxman Jadhav) to implement end-to-end full-stack features."
     ],
-    technologies: ["Node.js", "Express", "MongoDB", "JWT", "Docker", "Tesseract OCR"]
+    technologies: ["React", "Vue.js", "JavaScript", "HTML5", "CSS3", "Full Stack Architecture"]
+  },
+  {
+    id: "exp-apex-data",
+    role: "Data Analytics Intern",
+    company: "ApexPlanet Software Pvt Ltd",
+    location: "Remote",
+    period: "Jan 2026 – Mar 2026",
+    type: "Internship",
+    description: "Analyzed complex datasets to derive actionable business insights and support data-driven decision-making (Ref ID: APSPL2627277).",
+    achievements: [
+      "Analyzed datasets to derive actionable business insights and support data-driven decision-making.",
+      "Hands-on exposure to data manipulation, visualization, and analytical techniques in a dynamic software development environment."
+    ],
+    technologies: ["Data Analytics", "Data Processing", "Data Visualization", "Python", "SQL"]
+  },
+  {
+    id: "exp-uptoskills",
+    role: "Web Development Intern",
+    company: "UptoSkills",
+    location: "Remote",
+    period: "Oct 2025 – Jan 2026",
+    type: "Internship",
+    description: "Developed and optimized responsive UI modules under the guidance of Reporting Manager Mr. Shivam Agarwal.",
+    achievements: [
+      "Developed and optimized responsive UI modules under the guidance of Reporting Manager Mr. Shivam Agarwal.",
+      "Enhanced frontend performance and user interface design consistency for interactive web applications."
+    ],
+    technologies: ["Web Development", "React", "Frontend Integration", "JavaScript", "HTML5/CSS3"]
+  },
+  {
+    id: "exp-apex-web",
+    role: "Web Development Intern",
+    company: "ApexPlanet Software Pvt Ltd",
+    location: "Remote",
+    period: "Oct 2025 – Nov 2025",
+    type: "Internship",
+    description: "Implemented core frontend features using HTML, CSS, and JavaScript (Ref ID: APSPL2521280).",
+    achievements: [
+      "Implemented core frontend features using HTML, CSS, and JavaScript.",
+      "Strengthened foundational web development capabilities by building and debugging dynamic user interface components."
+    ],
+    technologies: ["HTML5", "CSS3", "JavaScript", "Web Layouts", "DOM Manipulation"]
+  },
+  {
+    id: "exp-axuore",
+    role: "Frontend Development Intern",
+    company: "Axuore Technologies",
+    location: "Remote",
+    period: "Jan 2025 – Feb 2025",
+    type: "Internship",
+    description: "Collaborated with senior professionals to develop real-world web application interfaces using React and Angular framework principles.",
+    achievements: [
+      "Collaborated with senior professionals to develop real-world web application interfaces using HTML, CSS, JavaScript, and React/Angular framework principles.",
+      "Solved real-world challenges in frontend design responsiveness and cross-browser performance."
+    ],
+    technologies: ["React", "Angular", "JavaScript", "HTML5", "CSS3", "Responsive UI"]
   }
 ];
 
