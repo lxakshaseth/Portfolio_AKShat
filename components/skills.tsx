@@ -68,34 +68,34 @@ export function Skills() {
               </span>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-2.5">
               {category.skills.map((skill, skillIdx) => (
-                <div key={skillIdx} className="space-y-1.5">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-slate-200 flex items-center gap-1.5">
-                      {skill.name}
-                      {skill.popular && (
-                        <span className="px-1.5 py-0.5 rounded text-[10px] bg-purple-500/20 text-purple-300 font-mono">
-                          CORE
-                        </span>
-                      )}
+                <motion.div
+                  key={skillIdx}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: skillIdx * 0.05 }}
+                  className="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-white/5 hover:border-purple-500/30 hover:bg-slate-800/60 transition-all duration-200 group"
+                >
+                  <div className="flex items-center gap-3">
+                    {/* Glowing Bullet Dot */}
+                    <span className="relative flex h-2.5 w-2.5 items-center justify-center shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-40"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-gradient-to-r from-blue-400 to-purple-400 shadow-[0_0_8px_#a855f7]"></span>
                     </span>
-                    <span className="font-mono text-purple-400 font-medium">
-                      {skill.level}%
+
+                    <span className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
+                      {skill.name}
                     </span>
                   </div>
 
-                  {/* Skill Progress Bar */}
-                  <div className="h-2 w-full bg-slate-950/80 rounded-full overflow-hidden p-0.5 border border-white/5">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: skillIdx * 0.1 }}
-                      className="h-full rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.5)]"
-                    />
-                  </div>
-                </div>
+                  {skill.popular && (
+                    <span className="px-2 py-0.5 rounded-full text-[10px] bg-purple-500/20 text-purple-300 font-mono border border-purple-500/30 font-semibold tracking-wider">
+                      CORE
+                    </span>
+                  )}
+                </motion.div>
               ))}
             </div>
           </GlassCard>
