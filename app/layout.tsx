@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
+import { ParticlesBackground } from "@/components/particles-background";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { CustomCursor } from "@/components/custom-cursor";
 import { Navbar } from "@/components/navbar";
@@ -99,6 +100,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning className="bg-slate-950 text-slate-100 antialiased selection:bg-purple-500/30 selection:text-purple-200">
+        <ParticlesBackground />
         <ScrollProgress />
         <CustomCursor />
         <Navbar />
