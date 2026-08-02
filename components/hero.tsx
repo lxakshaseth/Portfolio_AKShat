@@ -1,16 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useTyping } from "@/hooks/use-typing";
 import { PERSONAL_INFO } from "@/data/portfolio";
 import { ArrowRight, Download, Mail, Sparkles, Terminal, Code, CheckCircle2 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { motion } from "framer-motion";
-
-const ParticlesBackground = dynamic(
-  () => import("./particles-background").then((mod) => mod.ParticlesBackground),
-  { ssr: false }
-);
 
 export function Hero() {
   const typedTitle = useTyping(PERSONAL_INFO.titles, 90, 40, 1800);
@@ -29,8 +23,6 @@ export function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 overflow-hidden bg-grid-pattern"
     >
-      <ParticlesBackground />
-
       {/* Glow Orbs */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
       <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[130px] pointer-events-none" />

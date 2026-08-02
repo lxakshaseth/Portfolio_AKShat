@@ -43,7 +43,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const caseStudy = CASE_STUDIES[project.id];
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100 pt-28 pb-20 px-4">
+    <main className="relative min-h-screen bg-transparent text-slate-100 pt-28 pb-20 px-4 z-10">
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Back Link */}
         <Link
