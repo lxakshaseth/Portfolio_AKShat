@@ -157,19 +157,46 @@ export function About() {
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
-                className="space-y-4"
+                className="space-y-5"
               >
                 {ACHIEVEMENTS.map((ach, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-slate-900/60 border border-white/5 flex items-start gap-3 hover:border-purple-500/30 transition-all"
+                    className="p-5 rounded-2xl bg-slate-900/80 border border-white/10 space-y-4 hover:border-purple-500/40 transition-all shadow-xl"
                   >
-                    <div className="p-2 rounded-lg bg-amber-500/10 text-amber-400 shrink-0">
-                      <Award className="w-5 h-5" />
+                    <div className="flex items-center gap-3 border-b border-white/10 pb-3">
+                      <div className="p-2 rounded-lg bg-amber-500/10 text-amber-400 shrink-0 border border-amber-500/20">
+                        <Award className="w-5 h-5" />
+                      </div>
+                      <h5 className="text-sm sm:text-base font-bold text-white tracking-wide">
+                        {ach.title}
+                      </h5>
                     </div>
-                    <div>
-                      <h5 className="text-sm font-bold text-white">{ach.title}</h5>
-                      <p className="text-xs text-slate-300 mt-1">{ach.description}</p>
+
+                    <div className="space-y-3.5 text-xs leading-relaxed">
+                      <div className="space-y-1">
+                        <span className="font-bold text-purple-400 flex items-center gap-1.5 font-mono">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                          1. What I achieved:
+                        </span>
+                        <p className="text-slate-300 pl-5">{ach.achieved}</p>
+                      </div>
+
+                      <div className="space-y-1">
+                        <span className="font-bold text-amber-400 flex items-center gap-1.5 font-mono">
+                          <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                          2. What made it hard:
+                        </span>
+                        <p className="text-slate-300 pl-5">{ach.challenge}</p>
+                      </div>
+
+                      <div className="space-y-1">
+                        <span className="font-bold text-blue-400 flex items-center gap-1.5 font-mono">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                          3. What I did differently:
+                        </span>
+                        <p className="text-slate-300 pl-5">{ach.approach}</p>
+                      </div>
                     </div>
                   </div>
                 ))}

@@ -73,6 +73,13 @@ export interface CertificationItem {
   skills: string[];
 }
 
+export interface AchievementItem {
+  title: string;
+  achieved: string;
+  challenge: string;
+  approach: string;
+}
+
 export interface GitHubData {
   username: string;
   publicRepos: number;

@@ -1,4 +1,4 @@
-import { CertificationItem, ExperienceItem, GitHubData, ProjectItem, SkillCategory } from "@/types/portfolio";
+import { AchievementItem, CertificationItem, ExperienceItem, GitHubData, ProjectItem, SkillCategory } from "@/types/portfolio";
 
 export const PERSONAL_INFO = {
   name: "Akshat Gupta",
@@ -153,18 +153,18 @@ export const EDUCATION = [
   }
 ];
 
-export const ACHIEVEMENTS = [
+export const ACHIEVEMENTS: AchievementItem[] = [
   {
-    title: "Global AI Hackathon Winner 2024",
-    description: "Awarded 1st place among 500+ teams for building Civic AI Platform, an automated citizen grievance triage agent."
+    title: "Built an AI-Powered Learning Management System (Smart AI LMS)",
+    achieved: "I developed an AI-powered Learning Management System that provides personalized learning, AI-powered question answering, quiz generation, and learning recommendations. I worked on both the frontend and backend, integrating AI APIs and building RESTful services.",
+    challenge: "The biggest challenge was that I was learning several technologies while building the project. Integrating AI features with a full-stack application, handling API responses, debugging backend issues, and managing the database required continuous learning and problem-solving.",
+    approach: "Instead of waiting until I had mastered every technology, I learned by building. I broke the project into small milestones, read documentation, experimented with different approaches, and consistently debugged issues until they were resolved. This hands-on approach helped me gain practical full-stack and AI integration experience much faster."
   },
   {
-    title: "AWS Certified Community Contributor",
-    description: "Published technical guides on deploying Next.js 15 apps with CloudFront & Lambda@Edge."
-  },
-  {
-    title: "Open Source Contributor",
-    description: "Contributed performance optimizations and bug fixes to popular NPM developer tools."
+    title: "Contributed to a Sales Automation Platform During My Internship",
+    achieved: "During my internship, I contributed to a Sales Automation platform by developing backend APIs, integrating AI chatbot functionality, and working on WhatsApp communication features. I collaborated with the team to improve existing features and resolve technical issues.",
+    challenge: "The project involved multiple technologies, existing production code, third-party integrations, and real-world requirements. Understanding a large codebase while meeting deadlines was challenging, especially as an intern.",
+    approach: "I focused on understanding the business requirements before writing code. I actively read documentation, asked questions when needed, tested every feature thoroughly, and broke complex problems into smaller tasks. This helped me contribute effectively despite having limited industry experience and strengthened my confidence in working on real-world applications."
   }
 ];
 
