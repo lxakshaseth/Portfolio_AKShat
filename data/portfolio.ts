@@ -17,7 +17,7 @@ export const PERSONAL_INFO = {
   github: "https://github.com/lxakshaseth",
   linkedin: "https://www.linkedin.com/in/akshat0906",
   twitter: "https://twitter.com/lx_akshat_seth",
-  resumeUrl: "https://drive.google.com/file/d/1ZIRdRRXlGHo9EIvix15CAs6mgsO290Q1/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1K2QO95vCLI1TU8DlfOA2sV8jZVccq0RF/view?usp=sharing",
   yearsExperience: "1+",
   projectsCompleted: "45+",
   satisfiedClients: "15+",
