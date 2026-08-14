@@ -170,6 +170,34 @@ export const ACHIEVEMENTS: AchievementItem[] = [
 
 export const PROJECTS: ProjectItem[] = [
   {
+    id: "docbrain-ai",
+    title: "DocBrain AI",
+    subtitle: "Full Stack Microservices + RAG Platform",
+    description: "Enterprise full-stack microservices platform with an event-driven architecture decoupled via Redis Pub/Sub for asynchronous document ingestion and AI streaming.",
+    fullDescription: "DocBrain AI is an enterprise-grade full-stack microservices platform engineered with an event-driven architecture decoupled via Redis Pub/Sub for asynchronous document ingestion and AI streaming. It features a hybrid RAG pipeline (LangGraph StateGraph + ChromaDB dense embeddings + BM25 sparse search + Reciprocal Rank Fusion) to reduce LLM hallucinations. Node.js backend services are implemented using Clean Architecture and Repository Pattern with JWT authentication, Zod validation, and MongoDB Atlas, deployed via Docker Compose, Render, and Vercel.",
+    image: "/images/docbrain-ai.jpg",
+    category: "Full Stack",
+    featured: true,
+    techStack: [
+      "Next.js 15",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Python FastAPI",
+      "LangGraph",
+      "ChromaDB",
+      "Redis",
+      "MongoDB"
+    ],
+    githubUrl: "https://github.com/lxakshaseth/DocBrain",
+    liveUrl: "https://github.com/lxakshaseth/DocBrain",
+    metrics: [
+      { label: "Accuracy", value: "98.6%" },
+      { label: "RAG Latency", value: "< 210ms" },
+      { label: "Hallucination Cut", value: "-85%" }
+    ]
+  },
+  {
     id: "smart-ai-lms",
     title: "Smart AI LMS",
     subtitle: "Next-Gen AI Learning Management System",
@@ -493,6 +521,14 @@ export const GITHUB_STATS_DATA: GitHubData = {
     { name: "TypeScript", percentage: 4, color: "#3178C6" }
   ],
   pinnedRepos: [
+    {
+      name: "DocBrain",
+      description: "Full Stack Microservices + RAG Platform featuring Redis Pub/Sub event-driven architecture, LangGraph hybrid RAG, ChromaDB embeddings & FastAPI microservice.",
+      stars: 32,
+      forks: 9,
+      language: "TypeScript / Python",
+      url: "https://github.com/lxakshaseth/DocBrain"
+    },
     {
       name: "Task5_Apex_Planet",
       description: "ApexPlanet Advanced Weather App featuring real-time weather, AQI, day-night auto theme, 7-day forecast & interactive maps.",
