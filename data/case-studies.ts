@@ -1,6 +1,71 @@
 import { CaseStudy } from "@/types/portfolio";
 
 export const CASE_STUDIES: Record<string, CaseStudy> = {
+  "docbrain-ai": {
+    id: "cs-docbrain",
+    projectId: "docbrain-ai",
+    title: "DocBrain AI — Enterprise Microservices & Hybrid RAG Architecture",
+    overview: "DocBrain AI is an enterprise full-stack microservices platform designed for high-throughput asynchronous document ingestion, multi-tenant knowledge indexing, and zero-hallucination hybrid retrieval.",
+    architecture: {
+      title: "Decoupled Event-Driven Microservices & Hybrid Retrieval Pipeline",
+      description: "Engineered with Next.js 15, Node.js/Express, Python FastAPI, and LangGraph. Asynchronous document ingestion and real-time streaming are decoupled using Redis Pub/Sub, separating vector embedding generation from backend query handling.",
+      diagramComponents: [
+        "Frontend Application (Next.js 15 App Router + TypeScript + Tailwind CSS)",
+        "API Gateway & Auth (Node.js Express + Clean Architecture + Zod + JWT)",
+        "Event Bus / Queue (Redis Pub/Sub for async document ingestion & streaming)",
+        "RAG Orchestrator Microservice (Python FastAPI + LangGraph StateGraph)",
+        "Vector & Sparse Search (ChromaDB dense embeddings + BM25 search engine)",
+        "Primary Database & Storage (MongoDB Atlas + AWS S3 for raw documents)"
+      ]
+    },
+    keyFeatures: [
+      "Hybrid RAG Pipeline: Integrates LangGraph StateGraph, ChromaDB dense embeddings, and BM25 sparse search fused via Reciprocal Rank Fusion (RRF).",
+      "Event-Driven Ingestion Engine: Decoupled Redis Pub/Sub message broker handles heavy document parsing without blocking synchronous user queries.",
+      "Clean Architecture Node.js Backend: Strictly layered repository pattern with Zod payload validation and JWT-authenticated route guards.",
+      "Containerized Multi-Cloud Deployment: Orchestrated with Docker Compose for localized testing, deployed across Vercel, Render, and MongoDB Atlas."
+    ],
+    challenges: [
+      {
+        problem: "Standard dense vector search alone suffered from high hallucination rates on exact keyword lookup for enterprise contracts.",
+        solution: "Engineered a hybrid retrieval system combining BM25 keyword matching with ChromaDB vector search, using Reciprocal Rank Fusion (RRF) to score and rerank document chunks before LLM generation."
+      },
+      {
+        problem: "Heavy PDF parsing and embedding generation blocked Node.js event loop causing 504 gateway timeouts.",
+        solution: "Decoupled processing into an asynchronous task architecture using Redis Pub/Sub to pass ingestion jobs to Python FastAPI workers while streaming real-time status to the frontend via SSE."
+      }
+    ],
+    apiFlow: [
+      {
+        step: 1,
+        title: "Document Ingestion Request",
+        description: "User submits an enterprise document. Express.js authenticates JWT, validates payload with Zod, and publishes an ingestion event to Redis Pub/Sub."
+      },
+      {
+        step: 2,
+        title: "Async Chunking & Vectorization",
+        description: "FastAPI microservice consumes event, chunks document with smart boundary detection, and indexes dense vectors in ChromaDB alongside BM25 tokens."
+      },
+      {
+        step: 3,
+        title: "StateGraph Hybrid Querying",
+        description: "User queries DocBrain. LangGraph StateGraph executes hybrid dense+sparse retrieval, reranks with RRF, and streams hallucination-free response in < 210ms."
+      }
+    ],
+    databaseDesign: [
+      {
+        entity: "Document & IngestionJob",
+        description: "MongoDB collection tracking document metadata, chunk counts, processing statuses (queued, indexing, complete), and owner tenant IDs."
+      },
+      {
+        entity: "ChromaDB Vector Collections",
+        description: "High-dimensional embedding store with HNSW spatial indexing for fast semantic context retrieval."
+      },
+      {
+        entity: "User & Subscription RBAC",
+        description: "MongoDB Atlas schema managing user profiles, API rate-limiting tier tokens, and role-based permissions."
+      }
+    ]
+  },
   "smart-ai-lms": {
     id: "cs-1",
     projectId: "smart-ai-lms",
