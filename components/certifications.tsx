@@ -3,7 +3,7 @@
 import { SectionHeading } from "./ui/section-heading";
 import { GlassCard } from "./ui/glass-card";
 import { CERTIFICATIONS } from "@/data/portfolio";
-import { Award, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { Award, CheckCircle2, ExternalLink, ShieldCheck, Sparkles } from "lucide-react";
 
 export function Certifications() {
   return (
@@ -54,6 +54,20 @@ export function Certifications() {
                 ))}
               </div>
             </div>
+
+            {cert.credentialUrl && (
+              <div className="pt-2 border-t border-white/5">
+                <a
+                  href={cert.credentialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-purple-400 hover:text-purple-300 transition-colors"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  View Certificate
+                </a>
+              </div>
+            )}
           </GlassCard>
         ))}
       </div>
