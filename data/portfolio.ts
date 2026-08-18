@@ -424,6 +424,51 @@ export const PROJECTS: ProjectItem[] = [
 
 export const CERTIFICATIONS: CertificationItem[] = [
   {
+    id: "cert-aws-security-fundamentals",
+    title: "AWS Security Fundamentals",
+    issuer: "Amazon Web Services (AWS Training & Certification)",
+    date: "August 2026",
+    credentialId: "AWS-SEC-FUND-2026",
+    credentialUrl: "/certificates/aws-security-fundamentals.pdf",
+    skills: ["AWS Security", "Identity & Access Management (IAM)", "Cloud Compliance", "Data Protection"]
+  },
+  {
+    id: "cert-aws-technical-essentials",
+    title: "AWS Technical Essentials",
+    issuer: "Amazon Web Services (AWS Training & Certification)",
+    date: "August 2026",
+    credentialId: "AWS-TECH-ESS-2026",
+    credentialUrl: "/certificates/aws-technical-essentials.pdf",
+    skills: ["AWS Core Services", "EC2 Compute", "S3 Storage", "VPC Networking", "RDS Databases"]
+  },
+  {
+    id: "cert-aws-prompt-engineering",
+    title: "Foundations of Prompt Engineering",
+    issuer: "Amazon Web Services (AWS Training & Certification)",
+    date: "August 2026",
+    credentialId: "AWS-PROMPT-ENG-2026",
+    credentialUrl: "/certificates/foundations-of-prompt-engineering.pdf",
+    skills: ["Prompt Engineering", "Generative AI", "Amazon Bedrock", "LLM Design Patterns"]
+  },
+  {
+    id: "cert-aws-devops-getting-started",
+    title: "Getting Started with DevOps on AWS",
+    issuer: "Amazon Web Services (AWS Training & Certification)",
+    date: "August 2026",
+    credentialId: "AWS-DEVOPS-2026",
+    credentialUrl: "/certificates/getting-started-with-devops-on-aws.pdf",
+    skills: ["DevOps", "AWS CodePipeline", "CI/CD Automation", "Infrastructure as Code"]
+  },
+  {
+    id: "cert-aws-genai-art-of-possible",
+    title: "Introduction to Generative AI - Art of the Possible",
+    issuer: "Amazon Web Services (AWS Training & Certification)",
+    date: "August 2026",
+    credentialId: "AWS-GENAI-AOP-2026",
+    credentialUrl: "/certificates/introduction-to-generative-ai-art-of-the-possible.pdf",
+    skills: ["Generative AI", "Foundation Models", "AWS AI/ML", "Generative AI Use Cases"]
+  },
+  {
     id: "cert-oracle-agentic-ai",
     title: "Agentic AI Certified Foundations Associate",
     issuer: "Oracle University",
