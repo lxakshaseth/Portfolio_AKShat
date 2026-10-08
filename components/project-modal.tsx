@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
+import { useMounted } from "@/hooks/use-mounted";
 import { CASE_STUDIES } from "@/data/case-studies";
 import { ProjectItem } from "@/types/portfolio";
 import { X, ExternalLink, Layers, Cpu, Database, Workflow, AlertCircle, Sparkles } from "lucide-react";
@@ -15,6 +17,8 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const mounted = useMounted();
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -29,19 +33,28 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
     };
   }, [project, onClose]);
 
-  if (!project) return null;
+  if (!mounted) return null;
 
-  const caseStudy = CASE_STUDIES[project.id];
+  const caseStudy = project ? CASE_STUDIES[project.id] : null;
 
-  return (
+  return createPortal(
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-slate-950/80 backdrop-blur-md">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-panel rounded-2xl border border-white/15 p-6 sm:p-8 shadow-2xl space-y-8"
+      {project && (
+        <div
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              sounds.playClick();
+              onClose();
+            }
+          }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-slate-950/85 backdrop-blur-md"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-panel rounded-2xl border border-white/15 p-6 sm:p-8 shadow-2xl space-y-8"
+          >
           {/* Close Button */}
           <button
             type="button"
@@ -238,6 +251,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           )}
         </motion.div>
       </div>
-    </AnimatePresence>
-  );
+    )}
+  </AnimatePresence>,
+  document.body
+);
 }

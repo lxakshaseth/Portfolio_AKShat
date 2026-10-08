@@ -49,7 +49,7 @@ export function CustomCursor() {
   return (
     <>
       <div
-        className="fixed pointer-events-none z-50 rounded-full transition-transform duration-75 ease-out -translate-x-1/2 -translate-y-1/2"
+        className="fixed pointer-events-none z-[9999] rounded-full transition-transform duration-75 ease-out -translate-x-1/2 -translate-y-1/2"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
@@ -63,7 +63,7 @@ export function CustomCursor() {
         }}
       />
       <div
-        className="fixed pointer-events-none z-50 w-2 h-2 bg-purple-400 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_#a855f7]"
+        className="fixed pointer-events-none z-[9999] w-2 h-2 bg-purple-400 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_#a855f7]"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,

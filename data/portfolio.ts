@@ -443,8 +443,8 @@ export const CERTIFICATIONS: CertificationItem[] = [
     issuer: "Microsoft (Signed by Satya Nadella, CEO)",
     date: "September 2026",
     credentialId: "86B238F25DC30C0F",
-    credentialUrl: "/certificates/microsoft-azure-fundamentals.png",
-    image: "/certificates/microsoft-azure-fundamentals.png",
+    credentialUrl: "/certificates/azure-fundamentals-credential.png",
+    image: "/certificates/azure-fundamentals-credential.png",
     featured: true,
     badge: "Microsoft Certified",
     skills: ["Microsoft Azure", "Cloud Architecture", "Azure Security", "Compute & Networking", "Cost Management"]

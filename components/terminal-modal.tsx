@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { useMounted } from "@/hooks/use-mounted";
 import { Terminal, X, CornerDownLeft, ShieldCheck, Award, Volume2, VolumeX } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CERTIFICATIONS, PROJECTS, PERSONAL_INFO, SKILL_CATEGORIES } from "@/data/portfolio";
@@ -32,6 +34,7 @@ const INITIAL_ENTRY: TerminalEntry = {
 };
 
 export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: TerminalModalProps) {
+  const mounted = useMounted();
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<TerminalEntry[]>([INITIAL_ENTRY]);
   const [soundEnabled, setSoundEnabled] = useState(sounds.enabled);
@@ -59,8 +62,6 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
 
   const runCommand = (cmd: string) => {
     const trimmed = cmd.trim().toLowerCase();
@@ -342,15 +343,26 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
     runCommand(input);
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-950/85 backdrop-blur-md">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94, y: 15 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.94, y: 15 }}
-          className="relative w-full max-w-3xl h-[85vh] max-h-[640px] flex flex-col rounded-2xl glass-panel border border-emerald-500/40 shadow-[0_0_50px_rgba(16,185,129,0.25)] overflow-hidden"
+      {isOpen && (
+        <div
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              sounds.playClick();
+              onClose();
+            }
+          }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-950/85 backdrop-blur-md"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.94, y: 15 }}
+            className="relative w-full max-w-3xl h-[85vh] max-h-[640px] flex flex-col rounded-2xl glass-panel border border-emerald-500/40 shadow-[0_0_50px_rgba(16,185,129,0.25)] overflow-hidden"
+          >
           {/* Terminal Window Header Bar */}
           <div className="flex items-center justify-between px-4 py-3 bg-slate-950/90 border-b border-white/10 shrink-0">
             <div className="flex items-center gap-2">
@@ -448,6 +460,8 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
           </form>
         </motion.div>
       </div>
-    </AnimatePresence>
-  );
+    )}
+  </AnimatePresence>,
+  document.body
+);
 }
