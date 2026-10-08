@@ -88,7 +88,7 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
           {/* Certificate Media Preview */}
           <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/80 shadow-2xl">
             {isImage ? (
-              <div className="relative w-full h-[260px] sm:h-[360px] bg-slate-950 flex items-center justify-center p-2">
+              <div className="relative w-full h-[280px] sm:h-[420px] bg-slate-950 flex items-center justify-center p-2">
                 <Image
                   src={certificate.image || certificate.credentialUrl!}
                   alt={certificate.title}
