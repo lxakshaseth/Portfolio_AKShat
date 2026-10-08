@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
+import { useMounted } from "@/hooks/use-mounted";
 import { X, Sparkles, Terminal } from "lucide-react";
 
 interface MatrixRainProps {
@@ -8,6 +10,7 @@ interface MatrixRainProps {
 }
 
 export function MatrixRain({ onClose }: MatrixRainProps) {
+  const mounted = useMounted();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -71,8 +74,10 @@ export function MatrixRain({ onClose }: MatrixRainProps) {
     };
   }, []);
 
-  return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-slate-950/90 backdrop-blur-sm flex flex-col justify-between p-6 animate-fadeIn">
+  if (!mounted) return null;
+
+  return createPortal(
+    <div className="fixed inset-0 z-[100] overflow-hidden bg-slate-950/90 backdrop-blur-sm flex flex-col justify-between p-6 animate-fadeIn">
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
 
       {/* Top Bar */}
@@ -114,6 +119,7 @@ export function MatrixRain({ onClose }: MatrixRainProps) {
       <div className="relative z-10 text-center text-xs font-mono text-emerald-400/80">
         Press <kbd className="px-2 py-0.5 rounded bg-slate-900 border border-emerald-500/40 text-white">ESC</kbd> or click Exit to return to portfolio interface
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

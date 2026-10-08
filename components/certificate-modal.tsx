@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { useMounted } from "@/hooks/use-mounted";
 import { CertificationItem } from "@/types/portfolio";
 import { X, ExternalLink, ShieldCheck, Download, Copy, Check, Award, Calendar, Hash, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,6 +16,7 @@ interface CertificateModalProps {
 
 export function CertificateModal({ certificate, onClose }: CertificateModalProps) {
   const [copied, setCopied] = useState(false);
+  const mounted = useMounted();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -30,10 +33,10 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
     };
   }, [certificate, onClose]);
 
-  if (!certificate) return null;
+  if (!mounted) return null;
 
   const copyCredentialId = () => {
-    if (certificate.credentialId) {
+    if (certificate?.credentialId) {
       navigator.clipboard.writeText(certificate.credentialId);
       setCopied(true);
       sounds.playClick();
@@ -41,19 +44,28 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
     }
   };
 
-  const isPdf = certificate.credentialUrl?.toLowerCase().endsWith(".pdf");
-  const isImage = certificate.image || certificate.credentialUrl?.match(/\.(png|jpg|jpeg|webp)$/i);
+  const isPdf = certificate?.credentialUrl?.toLowerCase().endsWith(".pdf");
+  const isImage = certificate?.image || certificate?.credentialUrl?.match(/\.(png|jpg|jpeg|webp)$/i);
 
-  return (
+  return createPortal(
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-950/85 backdrop-blur-md">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.92, y: 20 }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          className="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto glass-panel rounded-3xl border border-purple-500/30 p-5 sm:p-8 shadow-[0_0_50px_rgba(168,85,247,0.25)] space-y-6"
+      {certificate && (
+        <div
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              sounds.playClick();
+              onClose();
+            }
+          }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-950/85 backdrop-blur-md"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.92, y: 20 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto glass-panel rounded-3xl border border-purple-500/30 p-5 sm:p-8 shadow-[0_0_50px_rgba(168,85,247,0.25)] space-y-6"
+          >
           {/* Close Button */}
           <button
             type="button"
@@ -217,6 +229,8 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
-  );
+    )}
+  </AnimatePresence>,
+  document.body
+);
 }
