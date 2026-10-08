@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useScrollPosition } from "@/hooks/use-scroll-position";
 import { PERSONAL_INFO } from "@/data/portfolio";
-import { Menu, X, FileText, Sparkles, Code2 } from "lucide-react";
+import { Menu, X, FileText, Sparkles, Code2, Terminal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { sounds } from "@/lib/sound-effects";
+import { useTerminal } from "@/components/terminal-provider";
 
 const NAV_ITEMS = [
   { label: "Home", href: "#home" },
@@ -19,6 +21,7 @@ const NAV_ITEMS = [
 ];
 
 export function Navbar() {
+  const { openTerminal } = useTerminal();
   const { scrollPosition } = useScrollPosition();
   const [activeSection, setActiveSection] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -76,6 +79,7 @@ export function Navbar() {
         {/* Brand Logo */}
         <Link
           href="#home"
+          onClick={() => sounds.playClick()}
           className="flex items-center gap-2 text-base sm:text-lg font-bold text-white tracking-tight group shrink-0"
         >
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform shrink-0">
@@ -95,7 +99,8 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-colors ${
+                onClick={() => sounds.playClick()}
+                className={`relative px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
                   isActive ? "text-white font-semibold" : "text-slate-400 hover:text-slate-200"
                 }`}
               >
@@ -112,12 +117,27 @@ export function Navbar() {
           })}
         </div>
 
-        {/* Resume Button & Mobile Menu Toggle */}
-        <div className="flex items-center gap-3">
+        {/* HUD Button & Resume & Mobile Menu Toggle */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Quick HUD Terminal Button */}
+            <button
+              onClick={() => {
+                sounds.playPowerUp();
+                openTerminal();
+              }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-full bg-slate-900/90 text-emerald-400 border border-emerald-500/30 hover:border-emerald-400 hover:bg-emerald-950/40 transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+              title="Launch Developer HUD Terminal (Ctrl+K)"
+            >
+              <Terminal className="w-3.5 h-3.5 animate-pulse" />
+              <span className="hidden sm:inline">HUD</span>
+              <kbd className="hidden md:inline px-1 py-0.2 rounded bg-slate-800 text-[10px] text-slate-300">⌘K</kbd>
+            </button>
+
           <a
             href={PERSONAL_INFO.resumeUrl || "/resume.pdf"}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => sounds.playClick()}
             className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all transform hover:scale-105 active:scale-95"
           >
             <FileText className="w-3.5 h-3.5" />
@@ -126,7 +146,10 @@ export function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => {
+              sounds.playClick();
+              setMobileMenuOpen(!mobileMenuOpen);
+            }}
             suppressHydrationWarning
             className="lg:hidden p-2 text-slate-300 hover:text-white rounded-full bg-slate-800/80 border border-white/10"
             aria-label="Toggle Menu"
@@ -162,13 +185,16 @@ export function Navbar() {
                 <span className="text-sm font-semibold text-slate-300 flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-purple-400" /> Navigation
                 </span>
-                <span className="text-xs text-purple-400 font-mono">Akshat Portfolio</span>
+                <span className="text-xs text-purple-400 font-mono">Akshat.dev</span>
               </div>
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    sounds.playClick();
+                    setMobileMenuOpen(false);
+                  }}
                   className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     activeSection === item.href.substring(1)
                       ? "bg-purple-600/30 text-white border border-purple-500/40"
@@ -178,11 +204,25 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
+
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openTerminal();
+                }}
+                className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-800 text-emerald-400 font-mono text-xs border border-emerald-500/30"
+              >
+                <Terminal className="w-4 h-4" /> Open Developer HUD (Ctrl+K)
+              </button>
+
               <a
                 href={PERSONAL_INFO.resumeUrl || "/resume.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  sounds.playClick();
+                  setMobileMenuOpen(false);
+                }}
                 className="mt-2 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-sm shadow-lg hover:shadow-purple-500/25 transition-all"
               >
                 <FileText className="w-4 h-4" /> Download Resume

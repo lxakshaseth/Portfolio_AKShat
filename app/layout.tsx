@@ -7,6 +7,7 @@ import { CustomCursor } from "@/components/custom-cursor";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { BackToTop } from "@/components/back-to-top";
+import { TerminalProvider } from "@/components/terminal-provider";
 import { PERSONAL_INFO } from "@/data/portfolio";
 
 const inter = Inter({
@@ -100,13 +101,15 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning className="bg-slate-950 text-slate-100 antialiased selection:bg-purple-500/30 selection:text-purple-200">
-        <ParticlesBackground />
-        <ScrollProgress />
-        <CustomCursor />
-        <Navbar />
-        {children}
-        <Footer />
-        <BackToTop />
+        <TerminalProvider>
+          <ParticlesBackground />
+          <ScrollProgress />
+          <CustomCursor />
+          <Navbar />
+          {children}
+          <Footer />
+          <BackToTop />
+        </TerminalProvider>
       </body>
     </html>
   );

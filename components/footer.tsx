@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PERSONAL_INFO } from "@/data/portfolio";
-import { Code2, Heart, ShieldCheck, Cloud } from "lucide-react";
+import { Code2, Cloud } from "lucide-react";
 
 export function Footer() {
   return (

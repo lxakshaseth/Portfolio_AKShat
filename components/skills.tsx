@@ -4,8 +4,10 @@ import { useState } from "react";
 import { SectionHeading } from "./ui/section-heading";
 import { GlassCard } from "./ui/glass-card";
 import { SKILL_CATEGORIES } from "@/data/portfolio";
-import { Cpu, Server, Cloud, Bot, Sparkles, CheckCircle } from "lucide-react";
+import { Cpu, Server, Cloud, Bot, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+
+import { sounds } from "@/lib/sound-effects";
 
 export function Skills() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -37,7 +39,10 @@ export function Skills() {
         {categories.map((cat) => (
           <button
             key={cat}
-            onClick={() => setSelectedCategory(cat)}
+            onClick={() => {
+              sounds.playClick();
+              setSelectedCategory(cat);
+            }}
             suppressHydrationWarning
             className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${
               selectedCategory === cat
