@@ -43,7 +43,7 @@ export function Contact() {
       } else {
         throw new Error("Failed to send message.");
       }
-    } catch (err) {
+    } catch {
       setStatus({
         type: "error",
         text: "Something went wrong. Please email directly at lxakshatseth90@gmail.com",

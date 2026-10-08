@@ -1,4 +1,4 @@
-# 🚀 Akshat Gupta — Full Stack & Cloud Developer Portfolio
+# 🚀 Akshat — Full Stack & Cloud Developer Portfolio
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat-square&logo=react)](https://react.dev/)
@@ -144,8 +144,8 @@ For detailed instructions on deploying to AWS (Amplify, S3 + CloudFront, or EC2 
 
 ## 👤 Author
 
-**Akshat Gupta**
+**Akshat**
 - **GitHub**: [@lxakshaseth](https://github.com/lxakshaseth)
-- **LinkedIn**: [Akshat Gupta](https://www.linkedin.com/in/akshat0906)
+- **LinkedIn**: [Akshat](https://www.linkedin.com/in/akshat0906)
 - **Email**: lxakshatseth90@gmail.com
 - **Location**: India (Open to Relocate / Remote)

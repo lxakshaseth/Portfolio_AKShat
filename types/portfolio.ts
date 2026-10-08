@@ -70,6 +70,8 @@ export interface CertificationItem {
   credentialId?: string;
   credentialUrl?: string;
   image?: string;
+  featured?: boolean;
+  badge?: string;
   skills: string[];
 }
 

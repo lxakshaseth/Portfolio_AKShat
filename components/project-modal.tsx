@@ -7,6 +7,7 @@ import { X, ExternalLink, Layers, Cpu, Database, Workflow, AlertCircle, Sparkles
 import { GithubIcon } from "./ui/icons";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { sounds } from "@/lib/sound-effects";
 
 interface ProjectModalProps {
   project: ProjectItem | null;
@@ -43,7 +44,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         >
           {/* Close Button */}
           <button
-            onClick={onClose}
+            type="button"
+            onClick={() => {
+              sounds.playClick();
+              onClose();
+            }}
             suppressHydrationWarning
             className="absolute top-4 right-4 p-2.5 rounded-full bg-slate-900/90 text-slate-400 hover:text-white border border-white/10 hover:border-purple-500/40 transition-all z-20"
             aria-label="Close modal"

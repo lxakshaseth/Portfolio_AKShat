@@ -6,6 +6,7 @@ import { GlassCard } from "./ui/glass-card";
 import { GITHUB_STATS_DATA } from "@/data/portfolio";
 import { Star, GitFork, GitCommit, Users, Code, ExternalLink, Activity, Search, ChevronDown, ChevronUp } from "lucide-react";
 import { GithubIcon } from "./ui/icons";
+import { sounds } from "@/lib/sound-effects";
 
 interface LiveRepo {
   name: string;
@@ -40,7 +41,7 @@ export function GitHubStats() {
         if (reposRes.ok) {
           const reposData = await reposRes.json();
           if (Array.isArray(reposData) && reposData.length > 0) {
-            const formatted: LiveRepo[] = reposData.map((r: any) => ({
+            const formatted: LiveRepo[] = reposData.map((r: { name: string; description?: string; stargazers_count?: number; forks_count?: number; language?: string; html_url: string }) => ({
               name: r.name,
               description: r.description || "Public repository by Akshat.",
               stars: r.stargazers_count || 0,
@@ -52,7 +53,7 @@ export function GitHubStats() {
             setIsLive(true);
           }
         }
-      } catch (err) {
+      } catch {
         console.warn("GitHub API rate limited or offline, using fallback dataset.");
       }
     }
@@ -255,7 +256,10 @@ export function GitHubStats() {
           <GlassCard
             key={idx}
             className="space-y-4 flex flex-col justify-between hover:border-purple-500/40 hover:shadow-[0_0_25px_rgba(168,85,247,0.2)] transition-all duration-300 cursor-pointer"
-            onClick={() => window.open(repo.url, "_blank")}
+            onClick={() => {
+              sounds.playClick();
+              window.open(repo.url, "_blank");
+            }}
           >
             <div className="space-y-2">
               <div className="flex items-center justify-between">

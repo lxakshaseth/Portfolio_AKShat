@@ -32,8 +32,10 @@ export function useTyping(
         setIsDeleting(true);
       }, pauseDuration);
     } else if (isDeleting && currentText === "") {
-      setIsDeleting(false);
-      setWordIndex((prev) => prev + 1);
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+        setWordIndex((prev) => prev + 1);
+      }, 500);
     }
 
     return () => clearTimeout(timer);

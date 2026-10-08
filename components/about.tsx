@@ -6,6 +6,7 @@ import { GlassCard } from "./ui/glass-card";
 import { PERSONAL_INFO, EDUCATION, ACHIEVEMENTS } from "@/data/portfolio";
 import { GraduationCap, Award, MapPin, Briefcase, Sparkles, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { sounds } from "@/lib/sound-effects";
 
 export function About() {
   const [activeTab, setActiveTab] = useState<"summary" | "education" | "achievements">("summary");
@@ -42,12 +43,14 @@ export function About() {
               {PERSONAL_INFO.about}
             </p>
 
-            <div className="space-y-2 border-t border-white/10 pt-4">
+            <div className="space-y-2.5 border-t border-white/10 pt-4">
               {[
-                "Production experience with Next.js 15 App Router",
-                "Full Stack MERN & PostgreSQL architecture",
-                "AWS S3, EC2, Amplify & CloudFront CDN expert",
-                "Generative AI integration (OpenAI & Groq)"
+                "Microsoft Certified: Azure Fundamentals",
+                "Podar Startupthon 2K26 Grand Finale Finalist",
+                "Podar Hackfest 2026 Certificate of Achievement",
+                "Full Stack Microservices (Next.js, Node.js, Express, Redis, MongoDB)",
+                "Cloud & DevOps Architecture (Azure, AWS EC2, S3, Docker, Nginx)",
+                "AI Engineering & Hybrid RAG Pipelines (LangGraph, ChromaDB, OpenAI)"
               ].map((point, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-xs text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -63,7 +66,11 @@ export function About() {
           {/* Tab Navigation */}
           <div className="flex flex-wrap gap-2 p-1.5 glass-panel rounded-xl border border-white/10">
             <button
-              onClick={() => setActiveTab("summary")}
+              type="button"
+              onClick={() => {
+                sounds.playClick();
+                setActiveTab("summary");
+              }}
               suppressHydrationWarning
               className={`flex-1 min-w-[85px] sm:min-w-[110px] py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "summary"
@@ -76,7 +83,11 @@ export function About() {
             </button>
 
             <button
-              onClick={() => setActiveTab("education")}
+              type="button"
+              onClick={() => {
+                sounds.playClick();
+                setActiveTab("education");
+              }}
               suppressHydrationWarning
               className={`flex-1 min-w-[85px] sm:min-w-[110px] py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "education"
@@ -89,7 +100,11 @@ export function About() {
             </button>
 
             <button
-              onClick={() => setActiveTab("achievements")}
+              type="button"
+              onClick={() => {
+                sounds.playClick();
+                setActiveTab("achievements");
+              }}
               suppressHydrationWarning
               className={`flex-1 min-w-[85px] sm:min-w-[110px] py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "achievements"

@@ -6,9 +6,11 @@ import { GlassCard } from "./ui/glass-card";
 import { ProjectModal } from "./project-modal";
 import { PROJECTS } from "@/data/portfolio";
 import { ProjectItem } from "@/types/portfolio";
-import { ExternalLink, BookOpen, Sparkles } from "lucide-react";
+import { ExternalLink, BookOpen } from "lucide-react";
 import { GithubIcon } from "./ui/icons";
 import Image from "next/image";
+
+import { sounds } from "@/lib/sound-effects";
 
 export function Projects() {
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
@@ -34,8 +36,12 @@ export function Projects() {
         {filters.map((filter) => (
           <button
             key={filter}
-            onClick={() => setSelectedFilter(filter)}
+            type="button"
             suppressHydrationWarning
+            onClick={() => {
+              sounds.playClick();
+              setSelectedFilter(filter);
+            }}
             className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${
               selectedFilter === filter
                 ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.4)]"
@@ -52,7 +58,10 @@ export function Projects() {
         {filteredProjects.map((project) => (
           <GlassCard
             key={project.id}
-            onClick={() => setActiveModalProject(project)}
+            onClick={() => {
+              sounds.playSuccess();
+              setActiveModalProject(project);
+            }}
             className="flex flex-col justify-between group p-0 overflow-hidden cursor-pointer border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.25)] transition-all duration-300 transform hover:-translate-y-1"
           >
             {/* Image Preview Container */}

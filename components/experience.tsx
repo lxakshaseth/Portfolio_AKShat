@@ -15,7 +15,7 @@ export function Experience() {
       />
 
       <div className="relative border-l-2 border-purple-500/30 ml-3 sm:ml-8 space-y-12 pl-4 sm:pl-10">
-        {EXPERIENCES.map((exp, idx) => (
+        {EXPERIENCES.map((exp) => (
           <div key={exp.id} className="relative group">
             {/* Timeline Glowing Node */}
             <div className="absolute -left-[25px] sm:-left-[47px] top-1.5 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950 border-2 border-purple-500 flex items-center justify-center group-hover:scale-125 group-hover:bg-purple-600 transition-all shadow-[0_0_15px_rgba(168,85,247,0.8)]">

@@ -1,16 +1,17 @@
 import { AchievementItem, CertificationItem, ExperienceItem, GitHubData, ProjectItem, SkillCategory } from "@/types/portfolio";
 
 export const PERSONAL_INFO = {
-  name: "Akshat Gupta",
-  role: "Full Stack | MERN Stack | Backend | Frontend Developer",
+  name: "Akshat",
+  role: "Full Stack & Cloud Engineer | Microsoft Azure Certified | AI Systems",
   titles: [
-    "Full Stack Developer",
-    "MERN Stack Developer",
-    "Backend Engineer",
-    "Frontend Web Developer"
+    "Full Stack Engineer",
+    "Microsoft Certified: Azure",
+    "MERN Stack Specialist",
+    "Backend & Cloud Architect",
+    "AI Systems Builder"
   ],
-  bio: "Building high-performance MERN stack web applications, robust backend microservices, and modern responsive frontend interfaces backed by cloud infrastructure.",
-  about: "I am a Full Stack Developer & MERN Stack Specialist with deep expertise in Node.js, Express, MongoDB, PostgreSQL, React 19, Next.js 15, and AWS cloud deployments. I build end-to-end web applications combining scalable backend APIs with polished, lightning-fast frontend user interfaces.",
+  bio: "Microsoft Certified Full Stack & Cloud Engineer building high-performance web applications, event-driven microservices, and modern AI pipelines backed by cloud infrastructure.",
+  about: "I am a Microsoft Certified Full Stack & Cloud Developer with hands-on expertise in Node.js, Express, MongoDB, PostgreSQL, React 19, Next.js, and Azure/AWS cloud infrastructure. I build end-to-end production systems combining resilient microservice backends with polished, lightning-fast user interfaces.",
   location: "India (Open to Relocate) / Remote",
   email: "lxakshatseth90@gmail.com",
   phone: "+91 7256014047",
@@ -29,10 +30,10 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Frontend Web Development",
     skills: [
       { name: "React 19", level: 95, popular: true },
-      { name: "Next.js 15 (App Router)", level: 92, popular: true },
-      { name: "TypeScript", level: 90, popular: true },
+      { name: "Next.js 16 / 15 (App Router)", level: 94, popular: true },
+      { name: "TypeScript", level: 92, popular: true },
       { name: "Tailwind CSS", level: 95, popular: true },
-      { name: "Framer Motion", level: 85 },
+      { name: "Framer Motion", level: 88 },
       { name: "Redux Toolkit / Zustand", level: 88 }
     ]
   },
@@ -43,7 +44,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "Express.js", level: 90 },
       { name: "MongoDB", level: 88, popular: true },
       { name: "PostgreSQL", level: 86, popular: true },
-      { name: "Redis Cache", level: 84 },
+      { name: "Redis Cache & Pub/Sub", level: 85 },
       { name: "JWT & OAuth 2.0", level: 90 },
       { name: "REST & GraphQL APIs", level: 92 }
     ]
@@ -51,10 +52,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "DevOps & Cloud Infrastructure",
     skills: [
+      { name: "Microsoft Azure (Certified)", level: 94, popular: true },
+      { name: "AWS (EC2, S3, CloudFront, Amplify)", level: 88, popular: true },
       { name: "Docker & Containerization", level: 88, popular: true },
-      { name: "AWS (EC2, S3, CloudFront, Amplify)", level: 86, popular: true },
-      { name: "GitHub Actions CI/CD", level: 85 },
-      { name: "Nginx Reverse Proxy", level: 82 },
+      { name: "GitHub Actions CI/CD", level: 86 },
+      { name: "Nginx Reverse Proxy", level: 84 },
       { name: "Linux Server Administration", level: 84 }
     ]
   },
@@ -154,6 +156,18 @@ export const EDUCATION = [
 ];
 
 export const ACHIEVEMENTS: AchievementItem[] = [
+  {
+    title: "Finalist at Podar Startupthon 2K26 Grand Finale",
+    achieved: "Competed in the Podar Startupthon 2K26 Grand Finale at Nawalgarh (Rajasthan), presenting an innovative, scalable full-stack venture prototype to industry investors and veteran leaders.",
+    challenge: "Translating complex microservice architectures into an intuitive live product demonstration within minutes while proving unit economic scalability and user engagement viability.",
+    approach: "Designed a clean, decoupled system with real-time analytics and modular APIs. Delivered an interactive live demo showcasing technical excellence and market relevance, earning the official Grand Finale honor (PST26-PRT-01867)."
+  },
+  {
+    title: "Podar Hackfest 2026 Certificate of Achievement",
+    achieved: "Awarded Certificate of Achievement at Podar Hackfest for conceptualizing, building, and delivering a resilient software application within an intensive hackathon sprint.",
+    challenge: "Handling rapid prototyping under high pressure, maintaining clean architecture patterns, and coordinating end-to-end integration across frontend UI, REST endpoints, and database pipelines.",
+    approach: "Adopted strict atomic component design and iterative micro-milestones, validating core user journeys early to ship a flawless demo before deadline (CERT-1778155983667-TVXWJ)."
+  },
   {
     title: "Built an AI-Powered Learning Management System (Smart AI LMS)",
     achieved: "I developed an AI-powered Learning Management System that provides personalized learning, AI-powered question answering, quiz generation, and learning recommendations. I worked on both the frontend and backend, integrating AI APIs and building RESTful services.",
@@ -423,6 +437,40 @@ export const PROJECTS: ProjectItem[] = [
 ];
 
 export const CERTIFICATIONS: CertificationItem[] = [
+  {
+    id: "cert-microsoft-azure-fundamentals",
+    title: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft (Signed by Satya Nadella, CEO)",
+    date: "September 2026",
+    credentialId: "86B238F25DC30C0F",
+    credentialUrl: "/certificates/microsoft-azure-fundamentals.png",
+    image: "/certificates/microsoft-azure-fundamentals.png",
+    featured: true,
+    badge: "Microsoft Certified",
+    skills: ["Microsoft Azure", "Cloud Architecture", "Azure Security", "Compute & Networking", "Cost Management"]
+  },
+  {
+    id: "cert-podar-startupthon-2026",
+    title: "Podar Startupthon 2K26 - Grand Finale",
+    issuer: "Podar Eduspace & Uptoskills",
+    date: "October 2026",
+    credentialId: "PST26-PRT-01867",
+    credentialUrl: "/certificates/podar-startupthon-2k26.pdf",
+    featured: true,
+    badge: "Grand Finale Finalist",
+    skills: ["Startup Innovation", "Product Strategy", "Full Stack Prototype", "Rapid Prototyping"]
+  },
+  {
+    id: "cert-podar-hackfest",
+    title: "Podar Hackfest Certificate of Achievement",
+    issuer: "Podar Educational Institutions & Uptoskills",
+    date: "May 2026",
+    credentialId: "CERT-1778155983667-TVXWJ",
+    credentialUrl: "/certificates/podar-hackfest.pdf",
+    featured: true,
+    badge: "Achievement Award",
+    skills: ["Hackathon Engineering", "Rapid Full Stack Dev", "System Architecture", "Problem Solving"]
+  },
   {
     id: "cert-aws-security-fundamentals",
     title: "AWS Security Fundamentals",
