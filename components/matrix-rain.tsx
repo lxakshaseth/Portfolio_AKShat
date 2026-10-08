@@ -86,6 +86,8 @@ export function MatrixRain({ onClose }: MatrixRainProps) {
         </div>
 
         <button
+          type="button"
+          suppressHydrationWarning
           onClick={onClose}
           className="flex items-center gap-2 px-4 py-1.5 rounded-xl bg-emerald-500 text-slate-950 font-mono font-bold text-xs hover:bg-emerald-400 transition-all shadow-[0_0_15px_#10b981]"
         >

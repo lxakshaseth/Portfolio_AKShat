@@ -6,6 +6,7 @@ import { GlassCard } from "./ui/glass-card";
 import { PERSONAL_INFO, EDUCATION, ACHIEVEMENTS } from "@/data/portfolio";
 import { GraduationCap, Award, MapPin, Briefcase, Sparkles, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { sounds } from "@/lib/sound-effects";
 
 export function About() {
   const [activeTab, setActiveTab] = useState<"summary" | "education" | "achievements">("summary");
@@ -65,7 +66,11 @@ export function About() {
           {/* Tab Navigation */}
           <div className="flex flex-wrap gap-2 p-1.5 glass-panel rounded-xl border border-white/10">
             <button
-              onClick={() => setActiveTab("summary")}
+              type="button"
+              onClick={() => {
+                sounds.playClick();
+                setActiveTab("summary");
+              }}
               suppressHydrationWarning
               className={`flex-1 min-w-[85px] sm:min-w-[110px] py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "summary"
@@ -78,7 +83,11 @@ export function About() {
             </button>
 
             <button
-              onClick={() => setActiveTab("education")}
+              type="button"
+              onClick={() => {
+                sounds.playClick();
+                setActiveTab("education");
+              }}
               suppressHydrationWarning
               className={`flex-1 min-w-[85px] sm:min-w-[110px] py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "education"
@@ -91,7 +100,11 @@ export function About() {
             </button>
 
             <button
-              onClick={() => setActiveTab("achievements")}
+              type="button"
+              onClick={() => {
+                sounds.playClick();
+                setActiveTab("achievements");
+              }}
               suppressHydrationWarning
               className={`flex-1 min-w-[85px] sm:min-w-[110px] py-2 sm:py-2.5 px-2 sm:px-4 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "achievements"

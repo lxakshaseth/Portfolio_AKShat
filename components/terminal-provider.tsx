@@ -110,6 +110,8 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
       {/* Persistent Floating HUD Widget (Desktop Bottom-Left) */}
       <div className="fixed bottom-6 left-6 z-30 hidden md:flex items-center gap-2 pointer-events-auto">
         <button
+          type="button"
+          suppressHydrationWarning
           onClick={openTerminal}
           className="flex items-center gap-2 px-3.5 py-2 rounded-full glass-panel border border-emerald-500/40 text-emerald-400 hover:text-emerald-300 hover:border-emerald-300 text-xs font-mono font-bold shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:shadow-[0_0_30px_rgba(16,185,129,0.45)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
         >
@@ -121,6 +123,8 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
         </button>
 
         <button
+          type="button"
+          suppressHydrationWarning
           onClick={toggleSound}
           className="p-2 rounded-full glass-panel border border-white/10 text-slate-400 hover:text-white transition-all text-xs"
           title="Toggle Futuristic Web Audio Synthesizer"
@@ -133,6 +137,8 @@ export function TerminalProvider({ children }: { children: React.ReactNode }) {
         </button>
 
         <button
+          type="button"
+          suppressHydrationWarning
           onClick={() => openCertificate("cert-microsoft-azure-fundamentals")}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-950/80 border border-blue-500/30 text-[11px] font-mono text-blue-400 hover:bg-blue-950/40 transition-all cursor-pointer"
         >

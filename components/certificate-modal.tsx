@@ -56,6 +56,8 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
         >
           {/* Close Button */}
           <button
+            type="button"
+            suppressHydrationWarning
             onClick={() => {
               sounds.playClick();
               onClose();
@@ -155,6 +157,8 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
               </div>
 
               <button
+                type="button"
+                suppressHydrationWarning
                 onClick={copyCredentialId}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 hover:text-white transition-all border border-white/10"
               >

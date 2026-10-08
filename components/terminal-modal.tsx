@@ -121,6 +121,8 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
                 Credential ID: <span className="text-cyan-300 font-bold">86B238F25DC30C0F</span> | Cert No: IE6BA0-40D3AE
               </div>
               <button
+                type="button"
+                suppressHydrationWarning
                 onClick={() => {
                   onSelectCert("cert-microsoft-azure-fundamentals");
                   onClose();
@@ -155,6 +157,8 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
                 Certificate No: <span className="text-amber-300 font-bold">PST26-PRT-01867</span> | Issue Date: 8 Oct 2026
               </div>
               <button
+                type="button"
+                suppressHydrationWarning
                 onClick={() => {
                   onSelectCert("cert-podar-startupthon-2026");
                   onClose();
@@ -189,6 +193,8 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
                 Certificate No: <span className="text-emerald-300 font-bold">CERT-1778155983667-TVXWJ</span> | Date: May 7, 2026
               </div>
               <button
+                type="button"
+                suppressHydrationWarning
                 onClick={() => {
                   onSelectCert("cert-podar-hackfest");
                   onClose();
@@ -358,6 +364,8 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
 
             <div className="flex items-center gap-2">
               <button
+                type="button"
+                suppressHydrationWarning
                 onClick={() => {
                   const en = sounds.toggleSound();
                   setSoundEnabled(en);
@@ -368,6 +376,8 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
                 {soundEnabled ? <Volume2 className="w-4 h-4 text-emerald-400" /> : <VolumeX className="w-4 h-4" />}
               </button>
               <button
+                type="button"
+                suppressHydrationWarning
                 onClick={() => {
                   sounds.playClick();
                   onClose();
@@ -394,6 +404,8 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
             ].map((chip) => (
               <button
                 key={chip.label}
+                type="button"
+                suppressHydrationWarning
                 onClick={() => runCommand(chip.label)}
                 className={`px-2 py-0.5 rounded text-[11px] font-mono border bg-slate-950/80 hover:bg-slate-800 transition-all shrink-0 ${chip.color}`}
               >
@@ -428,6 +440,7 @@ export function TerminalModal({ isOpen, onClose, onOpenMatrix, onSelectCert }: T
             />
             <button
               type="submit"
+              suppressHydrationWarning
               className="p-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all shrink-0"
             >
               <CornerDownLeft className="w-3.5 h-3.5" />

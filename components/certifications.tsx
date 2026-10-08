@@ -47,6 +47,8 @@ export function Certifications() {
         {filters.map((f) => (
           <button
             key={f}
+            type="button"
+            suppressHydrationWarning
             onClick={() => {
               sounds.playClick();
               setFilter(f);

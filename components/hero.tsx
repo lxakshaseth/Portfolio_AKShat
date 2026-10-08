@@ -58,6 +58,8 @@ export function Hero() {
 
           {/* Microsoft Azure Badge */}
           <button
+            type="button"
+            suppressHydrationWarning
             onClick={() => {
               sounds.playClick();
               openCertificate("cert-microsoft-azure-fundamentals");
@@ -70,6 +72,8 @@ export function Hero() {
 
           {/* Podar Startupthon 2K26 Badge */}
           <button
+            type="button"
+            suppressHydrationWarning
             onClick={() => {
               sounds.playClick();
               openCertificate("cert-podar-startupthon-2026");
@@ -82,6 +86,8 @@ export function Hero() {
 
           {/* Interactive Sound FX Toggle */}
           <button
+            type="button"
+            suppressHydrationWarning
             onClick={toggleSound}
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full glass-panel border border-white/10 text-slate-400 hover:text-white text-xs font-mono transition-all"
             title="Toggle futuristic audio synthesizer"
@@ -146,6 +152,8 @@ export function Hero() {
 
           {/* Interactive HUD / Terminal Button */}
           <button
+            type="button"
+            suppressHydrationWarning
             onClick={() => {
               sounds.playPowerUp();
               openTerminal();

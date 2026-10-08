@@ -121,6 +121,8 @@ export function Navbar() {
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Quick HUD Terminal Button */}
             <button
+              type="button"
+              suppressHydrationWarning
               onClick={() => {
                 sounds.playPowerUp();
                 openTerminal();
@@ -206,6 +208,8 @@ export function Navbar() {
               ))}
 
               <button
+                type="button"
+                suppressHydrationWarning
                 onClick={() => {
                   setMobileMenuOpen(false);
                   openTerminal();
