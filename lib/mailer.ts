@@ -1,5 +1,9 @@
 import nodemailer from "nodemailer";
 
+const escapeHtml = (value: string) => value.replace(/[&<>"']/g, character => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+}[character]!));
+
 interface SendEmailParams {
   name: string;
   email: string;
@@ -52,11 +56,11 @@ export async function sendContactNotification({
         <div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 12px; border: 1px solid #e0e0e0; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
           <h2 style="color: #6d28d9; margin-top: 0;">New Portfolio Contact Message</h2>
           <hr style="border: none; border-top: 1px solid #eeeeee; margin: 15px 0;" />
-          <p><strong>Sender Name:</strong> ${name}</p>
-          <p><strong>Sender Email:</strong> <a href="mailto:${email}">${email}</a></p>
-          <p><strong>Subject:</strong> ${subject || "N/A"}</p>
+          <p><strong>Sender Name:</strong> ${escapeHtml(name)}</p>
+          <p><strong>Sender Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+          <p><strong>Subject:</strong> ${escapeHtml(subject || "N/A")}</p>
           <div style="margin-top: 20px; padding: 15px; background: #f3f4f6; border-left: 4px solid #6d28d9; border-radius: 4px;">
-            <p style="margin: 0; white-space: pre-wrap; color: #1f2937;"><strong>Message:</strong><br/>${message}</p>
+            <p style="margin: 0; white-space: pre-wrap; color: #1f2937;"><strong>Message:</strong><br/>${escapeHtml(message)}</p>
           </div>
           <hr style="border: none; border-top: 1px solid #eeeeee; margin: 20px 0;" />
           <p style="font-size: 12px; color: #9ca3af;">This message was submitted via your Portfolio Contact Form.</p>

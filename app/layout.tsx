@@ -1,24 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
-import { ParticlesBackground } from "@/components/particles-background";
-import { ScrollProgress } from "@/components/scroll-progress";
-import { CustomCursor } from "@/components/custom-cursor";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { BackToTop } from "@/components/back-to-top";
-import { TerminalProvider } from "@/components/terminal-provider";
 import { PERSONAL_INFO } from "@/data/portfolio";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://akshat-dev.com"),
@@ -33,11 +18,11 @@ export const metadata: Metadata = {
     "MERN Stack Developer",
     "Backend Engineer",
     "AI Engineer",
-    "Next.js 15 Developer",
+    "Next.js Developer",
     "TypeScript",
     "React",
     "Node.js",
-    "AWS Architect",
+    "Cloud Development",
   ],
   authors: [{ name: PERSONAL_INFO.name, url: PERSONAL_INFO.github }],
   creator: PERSONAL_INFO.name,
@@ -62,7 +47,6 @@ export const metadata: Metadata = {
     title: `${PERSONAL_INFO.name} | Full Stack Developer`,
     description: PERSONAL_INFO.bio,
     images: ["/images/og-image.jpg"],
-    creator: "@akshat_codes",
   },
   icons: {
     icon: "/favicon.ico",
@@ -93,7 +77,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning className={`scroll-smooth ${inter.variable} ${firaCode.variable}`}>
+    <html lang="en" className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"
@@ -101,15 +85,11 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning className="bg-slate-950 text-slate-100 antialiased selection:bg-purple-500/30 selection:text-purple-200">
-        <TerminalProvider>
-          <ParticlesBackground />
-          <ScrollProgress />
-          <CustomCursor />
+          <a className="skip-link" href="#main-content">Skip to content</a>
           <Navbar />
           {children}
           <Footer />
           <BackToTop />
-        </TerminalProvider>
       </body>
     </html>
   );

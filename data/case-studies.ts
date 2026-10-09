@@ -5,7 +5,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     id: "cs-docbrain",
     projectId: "docbrain-ai",
     title: "DocBrain AI — Enterprise Microservices & Hybrid RAG Architecture",
-    overview: "DocBrain AI is an enterprise full-stack microservices platform designed for high-throughput asynchronous document ingestion, multi-tenant knowledge indexing, and zero-hallucination hybrid retrieval.",
+    overview: "DocBrain AI is a full-stack microservices project combining asynchronous document ingestion, knowledge indexing, and hybrid retrieval to ground AI responses in uploaded documents.",
     architecture: {
       title: "Decoupled Event-Driven Microservices & Hybrid Retrieval Pipeline",
       description: "Engineered with Next.js 15, Node.js/Express, Python FastAPI, and LangGraph. Asynchronous document ingestion and real-time streaming are decoupled using Redis Pub/Sub, separating vector embedding generation from backend query handling.",
