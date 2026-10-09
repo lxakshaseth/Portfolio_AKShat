@@ -20,12 +20,18 @@ const withTimeout = <T>(promise: Promise<T>, ms: number, fallbackValue: T): Prom
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { name, email, subject, message } = body;
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json({ error: "Invalid message format." }, { status: 400 });
+    }
+    const { name, email, subject = "", message } = body;
 
-    if (!name || !email || !message) {
+    if (typeof name !== "string" || !name.trim() || name.length > 100 ||
+        typeof email !== "string" || email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+        typeof subject !== "string" || subject.length > 200 ||
+        typeof message !== "string" || !message.trim() || message.length > 5000) {
       return NextResponse.json(
-        { error: "Name, email, and message are required." },
+        { error: "Please enter a valid name, email, and message (up to 5,000 characters)." },
         { status: 400 }
       );
     }
@@ -74,6 +80,13 @@ export async function POST(request: Request) {
       withTimeout(saveToMongo(), 2500, false),
       withTimeout(sendMail(), 3000, false),
     ]);
+
+    if (!mongoSaved && !emailSent) {
+      return NextResponse.json(
+        { error: "Your message could not be delivered. Please contact Akshat directly by email." },
+        { status: 503 }
+      );
+    }
 
     return NextResponse.json(
       {

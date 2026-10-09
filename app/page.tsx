@@ -1,23 +1,34 @@
-import { Hero } from "@/components/hero";
-import { About } from "@/components/about";
-import { Skills } from "@/components/skills";
-import { Experience } from "@/components/experience";
-import { Projects } from "@/components/projects";
-import { GitHubStats } from "@/components/github-stats";
-import { Certifications } from "@/components/certifications";
+import Link from "next/link";
+import { MAJOR_PROJECTS, COMMIT_COUNTS_CHECKED } from "@/data/project-highlights";
+import { ProjectArtwork, projectVisualIndex } from "@/components/project-artwork";
+import { ArrowDown, ArrowUpRight, Code2, Cloud, Layers, Mail, Check, FileText } from "lucide-react";
+import { PERSONAL_INFO, PROJECTS, EXPERIENCES, SKILL_CATEGORIES, CERTIFICATIONS } from "@/data/portfolio";
+import { GithubIcon as Github, LinkedinIcon as Linkedin } from "@/components/ui/icons";
 import { Contact } from "@/components/contact";
-
+const selectedIds = MAJOR_PROJECTS.map(project => project.id);
+const notes: Record<string, string> = {
+  "sales-automation": "Lead workflows, campaign queues, WhatsApp integration and an AI sales assistant.",
+  "college-discovery": "College search, comparisons, admission tools and authenticated wishlists.",
+  "civic-ai-platform": "Role-based dashboards, complaint workflows and AI classification services.",
+  "smart-ai-lms": "AI tutoring, virtual labs, OCR study support and coding tools.",
+  "enterprise-mobility": "Employee transport workflows, access controls, fleet management and safety features.",
+  "docbrain-ai": "Document ingestion, hybrid search, authenticated APIs and streamed AI responses.",
+  "task5-apex-planet": "Weather API integration, forecast charts, interactive maps and responsive interfaces.",
+  "college-event-portal": "Django workflows, MySQL data storage, registrations and admin dashboards.",
+  "simple-pdf-image-merger": "Browser-based PDF merging, image conversion and drag-and-drop reordering."
+};
 export default function Home() {
-  return (
-    <main className="relative min-h-screen bg-transparent text-slate-100 overflow-x-hidden">
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <GitHubStats />
-      <Certifications />
-      <Contact />
-    </main>
-  );
+ const selected = selectedIds.flatMap(id => PROJECTS.filter(p => p.id === id));
+ return <main id="main-content" className="portfolio-home">
+ <section id="home" className="hero-section content-width">
+ <div className="hero-copy"><div className="availability"><span/> Open to developer roles</div><p className="eyebrow hero-eyebrow">HEY, I’M AKSHAT <span>↗</span></p><h1>I turn ideas into<br/><span className="hero-serif">things that work.</span></h1><p className="hero-description">Full stack developer with a cloud mindset. I build thoughtful web experiences, reliable backends, and practical AI tools.</p><div className="hero-actions"><a className="button-primary" href="#projects">Explore my work <ArrowUpRight size={19}/></a><a className="button-secondary" href={PERSONAL_INFO.resumeUrl} target="_blank" rel="noopener noreferrer"><FileText size={17}/> View résumé</a></div><div className="hero-meta"><span>India · Open to relocation & remote</span><a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" aria-label="Akshat on GitHub"><Github className="w-5 h-5"/></a><a href={PERSONAL_INFO.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Akshat on LinkedIn"><Linkedin className="w-5 h-5"/></a></div></div>
+ <div className="hero-art" aria-label="Illustration of a developer workspace" role="img"><div className="orbit orbit-one"/><div className="orbit orbit-two"/><span className="art-star">✳</span><div className="code-window"><div className="window-top"><span/><span/><span/><small>akshat / workspace</small></div><div className="code-body"><p><span className="code-purple">const</span> developer = {'{'}</p><p className="indent">name: <span className="code-green">&quot;Akshat&quot;</span>,</p><p className="indent">focus: [<span className="code-green">&quot;Web&quot;, &quot;Cloud&quot;, &quot;AI&quot;</span>],</p><p className="indent">mindset: <span className="code-green">&quot;Learn. Build. Improve.&quot;</span></p><p>{'}'};</p><br/><p className="code-muted">{"// From idea to working product"}</p><p>developer.<span className="code-purple">build</span>();<span className="code-caret">▍</span></p></div><div className="window-bottom"><span className="tiny-dot"/> Always learning <span>TypeScript</span></div></div><div className="art-label label-cloud"><Cloud size={18}/> Cloud-minded</div><div className="art-label label-build"><Check size={16}/> Built with purpose</div><div className="art-coordinate">IDEA → CODE → IMPACT</div></div><a href="#projects" className="scroll-note"><ArrowDown size={15}/> SCROLL TO EXPLORE</a></section>
+ <div className="expertise-strip"><div className="content-width"><span>BUILT WITH</span>{["React", "Next.js", "TypeScript", "Node.js", "Python", "Azure / AWS"].map(t => <strong key={t}>{t}</strong>)}</div></div>
+ <section id="projects" className="content-width portfolio-section"><div className="section-top"><div><p className="eyebrow">01 / MAJOR PROJECTS</p><h2>Less talk.<br/><span>More building.</span></h2></div><p>My major applications, ordered by verified repository commit history. Explore the systems with the most development activity.</p></div><div className="work-grid">{selected.map((project,i) => <article className="work-card" key={project.id}><Link href={`/projects/${project.id}`} className={`project-visual visual-${projectVisualIndex(project.id)}`} aria-label={`Read about ${project.title}`}><div className="visual-caption"><span>PROJECT / 0{i+1}</span><ArrowUpRight size={22}/></div><ProjectArtwork id={project.id} title={project.title}/></Link><div className="work-body"><a className="commit-badge" href={`${project.githubUrl}/commits/main/`} target="_blank" rel="noopener noreferrer" title={`Default-branch repository commits checked ${COMMIT_COUNTS_CHECKED}`}><Github className="w-3.5 h-3.5"/>{MAJOR_PROJECTS.find(p => p.id === project.id)?.commits} repository commits <ArrowUpRight size={13}/></a><p className="project-category">{project.subtitle}</p><h3><Link href={`/projects/${project.id}`}>{project.title.replace("Task5 Apex Planet Weather App","Weather & Air Quality")}</Link></h3><p>{project.description}</p><p className="contribution"><strong>What I built</strong> {notes[project.id]}</p><div className="tech-tags">{project.techStack.slice(0,5).map(t => <span key={t}>{t}</span>)}</div><div className="work-links"><Link href={`/projects/${project.id}`}>Explore project <ArrowUpRight size={16}/></Link><a href={project.githubUrl} target="_blank" rel="noopener noreferrer">Source code <Github className="w-4 h-4"/></a></div></div></article>)}</div><a className="text-link all-projects" href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer">More experiments & projects on GitHub <ArrowUpRight size={18}/></a></section>
+ <section id="about" className="about-section"><div className="content-width about-grid"><div><p className="eyebrow">02 / A LITTLE ABOUT ME</p><h2>Curious by nature.<br/><span>Developer by choice.</span></h2><p>I’m Akshat, a developer who enjoys understanding how things work—and making them work better. My experience spans frontend development, backend APIs, data analytics, and cloud fundamentals.</p><p>Through internships and independent projects, I’ve learned to break problems down, read the documentation, collaborate with a team, and keep improving the details.</p><a className="text-link" href={`mailto:${PERSONAL_INFO.email}`}>Let’s start a conversation <ArrowUpRight size={18}/></a></div><div className="approach-cards">{[{icon:Code2,title:"Interfaces with intention",text:"Responsive layouts, clear interactions, and attention to the small details."},{icon:Layers,title:"Thinking beyond the frontend",text:"APIs, databases, authentication, and the systems that connect them."},{icon:Cloud,title:"A foundation in the cloud",text:"Azure Fundamentals certified, with hands-on AWS and Docker project experience."}].map(({icon:Icon,title,text},i) => <div key={title}><span className="approach-icon"><Icon size={22}/></span><div><small>0{i+1}</small><h3>{title}</h3><p>{text}</p></div></div>)}</div></div></section>
+ <section id="skills" className="content-width portfolio-section"><p className="eyebrow">03 / MY TOOLKIT</p><h2>The right tools.<br/><span>A builder’s mindset.</span></h2><div className="toolkit-grid">{SKILL_CATEGORIES.map((category,i) => <div key={category.title}><span className="toolkit-number">0{i+1}</span><h3>{category.title}</h3><div className="tech-tags">{category.skills.map(s => <span key={s.name}>{s.name.replace("Next.js 16 / 15 (App Router)","Next.js (App Router)")}</span>)}</div></div>)}</div></section>
+ <section id="experience" className="content-width portfolio-section"><div className="section-top"><div><p className="eyebrow">04 / EXPERIENCE</p><h2>Learning by doing.<br/><span>Growing with teams.</span></h2></div><p>Hands-on internships in web development and data analytics, with opportunities to build, collaborate, and solve problems.</p></div><div className="experience-list">{EXPERIENCES.map(exp => <article key={exp.id}><div className="experience-date">{exp.period}<span>{exp.type} · {exp.location}</span></div><div><h3>{exp.role}</h3><h4>{exp.company}</h4><p>{exp.achievements[0]}</p><div className="tech-tags">{exp.technologies.slice(0,4).map(t => <span key={t}>{t}</span>)}</div></div><ArrowUpRight className="experience-arrow" size={20}/></article>)}</div></section>
+ <section id="certifications" className="content-width portfolio-section credentials-section"><p className="eyebrow">05 / CONTINUOUS LEARNING</p><h2>Putting curiosity <span>into practice.</span></h2><div className="credential-grid">{CERTIFICATIONS.filter(c => c.credentialUrl).slice(0,3).map(c => <a key={c.id} href={c.credentialUrl} target="_blank" rel="noopener noreferrer"><span>{c.issuer.replace(" (Signed by Satya Nadella, CEO)","")}</span><ArrowUpRight size={19}/><h3>{c.title}</h3><small>{c.date} · View credential</small></a>)}</div></section>
+ <div className="contact-wrap"><div className="content-width contact-intro"><p className="eyebrow">06 / WHAT’S NEXT?</p><h2>Your next developer?<br/><span>Let’s talk.</span></h2><p>I’m exploring full stack, frontend, and backend developer opportunities. If my work feels like a fit for your team, I’d love to hear from you.</p><a className="button-primary" href={`mailto:${PERSONAL_INFO.email}`}><Mail size={18}/> Email me <ArrowUpRight size={18}/></a></div><Contact/></div>
+ </main>;
 }

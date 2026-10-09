@@ -1,8 +1,9 @@
+import { PROJECT_UPDATES, ADDITIONAL_MAJOR_PROJECTS } from "./project-highlights";
 import { AchievementItem, CertificationItem, ExperienceItem, GitHubData, ProjectItem, SkillCategory } from "@/types/portfolio";
 
 export const PERSONAL_INFO = {
   name: "Akshat",
-  role: "Full Stack & Cloud Engineer | Microsoft Azure Certified | AI Systems",
+  role: "Full Stack Developer | Cloud & AI",
   titles: [
     "Full Stack Engineer",
     "Microsoft Certified: Azure",
@@ -10,7 +11,7 @@ export const PERSONAL_INFO = {
     "Backend & Cloud Architect",
     "AI Systems Builder"
   ],
-  bio: "Microsoft Certified Full Stack & Cloud Engineer building high-performance web applications, event-driven microservices, and modern AI pipelines backed by cloud infrastructure.",
+  bio: "Akshat is a full stack developer building responsive web applications, backend APIs, and practical AI tools. Explore projects, internship experience, and Azure Fundamentals certification.",
   about: "I am a Microsoft Certified Full Stack & Cloud Developer with hands-on expertise in Node.js, Express, MongoDB, PostgreSQL, React 19, Next.js, and Azure/AWS cloud infrastructure. I build end-to-end production systems combining resilient microservice backends with polished, lightning-fast user interfaces.",
   location: "India (Open to Relocate) / Remote",
   email: "lxakshatseth90@gmail.com",
@@ -151,7 +152,7 @@ export const EDUCATION = [
     degree: "Bachelor of Technology in Computer Science & Engineering",
     institution: "Delhi Technological University / IP University",
     period: "2023 - 2027",
-    details: "Specialized in Distributed Systems, Data Structures & Algorithms, and Machine Learning. Graduated with Honors."
+    details: "Expected graduation: 2027. Coursework includes computer science and software development."
   }
 ];
 
@@ -182,7 +183,7 @@ export const ACHIEVEMENTS: AchievementItem[] = [
   }
 ];
 
-export const PROJECTS: ProjectItem[] = [
+const BASE_PROJECTS: ProjectItem[] = [
   {
     id: "docbrain-ai",
     title: "DocBrain AI",
@@ -204,12 +205,7 @@ export const PROJECTS: ProjectItem[] = [
       "MongoDB"
     ],
     githubUrl: "https://github.com/lxakshaseth/DocBrain",
-    liveUrl: "https://github.com/lxakshaseth/DocBrain",
-    metrics: [
-      { label: "Accuracy", value: "98.6%" },
-      { label: "RAG Latency", value: "< 210ms" },
-      { label: "Hallucination Cut", value: "-85%" }
-    ]
+    liveUrl: "https://github.com/lxakshaseth/DocBrain"
   },
   {
     id: "smart-ai-lms",
@@ -222,12 +218,7 @@ export const PROJECTS: ProjectItem[] = [
     featured: true,
     techStack: ["Next.js 15", "TypeScript", "Node.js", "OpenAI API", "PostgreSQL", "Tailwind CSS", "AWS S3"],
     githubUrl: "https://github.com/lxakshaseth",
-    liveUrl: "https://github.com/lxakshaseth",
-    metrics: [
-      { label: "Active Learners", value: "25,000+" },
-      { label: "Quiz Latency", value: "< 800ms" },
-      { label: "Completion Boost", value: "+42%" }
-    ]
+    liveUrl: "https://github.com/lxakshaseth"
   },
   {
     id: "civic-ai-platform",
@@ -240,12 +231,7 @@ export const PROJECTS: ProjectItem[] = [
     featured: true,
     techStack: ["React", "Express.js", "Groq LPU", "MongoDB", "Docker", "AWS EC2", "WebRTC"],
     githubUrl: "https://github.com/lxakshaseth",
-    liveUrl: "https://github.com/lxakshaseth",
-    metrics: [
-      { label: "Issues Processed", value: "120,000+" },
-      { label: "Routing Accuracy", value: "96.4%" },
-      { label: "Resolution Time", value: "-50%" }
-    ]
+    liveUrl: "https://github.com/lxakshaseth"
   },
   {
     id: "sales-automation",
@@ -258,12 +244,7 @@ export const PROJECTS: ProjectItem[] = [
     featured: true,
     techStack: ["Next.js", "TypeScript", "Redis", "PostgreSQL", "Nginx", "GitHub Actions", "Tailwind CSS"],
     githubUrl: "https://github.com/lxakshaseth",
-    liveUrl: "https://github.com/lxakshaseth",
-    metrics: [
-      { label: "Email Sequences", value: "1.2M / mo" },
-      { label: "System Uptime", value: "99.99%" },
-      { label: "Conversion Boost", value: "3.5x" }
-    ]
+    liveUrl: "https://github.com/lxakshaseth"
   },
   {
     id: "task5-apex-planet",
@@ -672,3 +653,6 @@ export const GITHUB_STATS_DATA: GitHubData = {
     }
   ]
 };
+
+
+export const PROJECTS: ProjectItem[] = [...BASE_PROJECTS.map(project => ({ ...project, ...PROJECT_UPDATES[project.id] })), ...ADDITIONAL_MAJOR_PROJECTS];

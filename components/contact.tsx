@@ -37,7 +37,7 @@ export function Contact() {
       if (res.ok) {
         setStatus({
           type: "success",
-          text: "Message sent successfully! Akshat will reply shortly.",
+        text: "Thank you! Your message has been received.",
         });
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
@@ -58,7 +58,7 @@ export function Contact() {
       <SectionHeading
         badge="Get in Touch"
         title="Let's Build Something Great Together"
-        subtitle="Open for full-stack engineering roles, freelance architectural consultancies, and AI project collaborations."
+        subtitle="Open to developer roles and thoughtful project collaborations."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -160,6 +160,7 @@ export function Contact() {
 
               {status && (
                 <div
+                  role={status.type === "error" ? "alert" : "status"}
                   className={`p-3.5 rounded-xl text-xs font-medium flex items-center gap-2.5 ${
                     status.type === "success"
                       ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
@@ -184,6 +185,8 @@ export function Contact() {
                     type="text"
                     id="name"
                     name="name"
+                    autoComplete="name"
+                    maxLength={100}
                     required
                     suppressHydrationWarning
                     value={formData.name}
@@ -201,6 +204,8 @@ export function Contact() {
                     type="email"
                     id="email"
                     name="email"
+                    autoComplete="email"
+                    maxLength={254}
                     required
                     suppressHydrationWarning
                     value={formData.email}
@@ -219,6 +224,7 @@ export function Contact() {
                   type="text"
                   id="subject"
                   name="subject"
+                  maxLength={200}
                   suppressHydrationWarning
                   value={formData.subject}
                   onChange={handleChange}
@@ -234,6 +240,7 @@ export function Contact() {
                 <textarea
                   id="message"
                   name="message"
+                  maxLength={5000}
                   required
                   rows={5}
                   suppressHydrationWarning
